@@ -1,0 +1,94 @@
+{%extends "base.html" %}
+{% block main_content %}
+
+<h3 class="toggle">Introduction à Grapic</h3>
+<div class="content hidden">
+    <p>
+        Pour utiliser Grapic, il faut inclure la bibliothèque, ouvrir une fenêtre graphique, puis exécuter une boucle d’affichage :
+    </p>
+    <pre><code>#include &lt;Grapic.h&gt;
+using namespace grapic;
+
+int main()
+{
+    winInit("Fenêtre Grapic", 800, 600);
+
+    while (!winHasFinished())
+    {
+        backgroundColor(255, 255, 255);
+        clear();
+
+        // Dessins ici
+        color(0, 0, 255);
+        drawLine(100, 100, 200, 200);
+
+        winDisplay();
+    }
+
+    return 0;
+}</code></pre>
+</div>
+
+
+
+<h3 class="toggle">Exemples de TP</h3>
+<div class="content hidden">
+    <p>Voici quelques exemples de projets réalisés dans cette UE :</p>
+    <ul>
+        <li>Simulation de chute libre (physique + affichage Grapic)</li>
+        <li>Visualisation de suites (points reliés entre eux)</li>
+        <li>Création d’un labyrinthe, d’un pong ou d’une animation</li>
+    </ul>
+
+    <p>Exemple : affichage d'une parabole y = ax²</p>
+    <pre><code>for (float x = -10; x &lt; 10; x += 0.1)
+{
+    float y = a*x*x;
+    drawLine(400 + x*20, 300 + y*20, 400 + x*20, 300 + y*20);
+}</code></pre>
+</div>
+
+
+
+<h3 class="toggle">Mathématiques appliquées</h3>
+<div class="content hidden">
+    <ul>
+        <li>Géométrie (repère, coordonnées, vecteurs)</li>
+        <li>Suites numériques, fonctions (affichées graphiquement)</li>
+        <li>Calculs vectoriels (norme, direction, rebond)</li>
+        <li>Fractales et récursivité (ex : arbre, flocon de Koch...)</li>
+    </ul>
+</div>
+
+
+
+<h3 class="toggle">Exemple : Arbre récursif</h3>
+<div class="content hidden">
+    <p>Voici un exemple typique : un arbre dessiné récursivement avec Grapic.</p>
+    <pre><code>void arbre(float x, float y, float angle, float taille, int n)
+{
+    if (n == 0) return;
+
+    float x2 = x + taille * cos(angle);
+    float y2 = y + taille * sin(angle);
+
+    drawLine(x, y, x2, y2);
+
+    arbre(x2, y2, angle - 0.3, taille * 0.7, n - 1);
+    arbre(x2, y2, angle + 0.3, taille * 0.7, n - 1);
+}</code></pre>
+    <p>Appel initial dans la boucle principale :</p>
+    <pre><code>arbre(400, 100, M_PI/2, 100, 7);</code></pre>
+</div>
+
+
+<h3 class="toggle">Conclusion</h3>
+<div class="content hidden">
+    <p>
+        Cette UE te montre comment passer d’un problème mathématique abstrait à un programme fonctionnel en C++, et parfois même à une visualisation graphique.
+        Tu apprendras à mieux structurer tes fonctions, utiliser des boucles et de la récursivité, tout en manipulant des objets visuels simples avec Grapic.
+    </p>
+</div>
+
+
+{%endblock %}

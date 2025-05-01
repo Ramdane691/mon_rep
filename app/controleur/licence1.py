@@ -14,3 +14,11 @@ def ue_unix():
 def ue_algo():
     return render_template('ue_l1/lifapi.html', titre="Algorithmique et Programmation Impérative")
 
+@main.route('/L1/recursif')
+def ue_prog_recur():
+    return render_template('ue_l1/programation_recurcive.html', titre="Programmation Récursive et Algorithmique Avancée")
+
+
+@main.route('/L1/lifami')
+def ue_lifami():
+    return render_template('ue_l1/lifami.html', titre="Applucation Math/info")
