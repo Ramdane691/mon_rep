@@ -1,0 +1,521 @@
+{%extends "base.html"%}
+{%block main_content%}
+
+<h2>Algo & Prog Impérative - LifAPI</h2>
+
+<p>Cette UE introduit au développement en langae C++. Sur cette page, tu trouvera des resume de cours, des explication et des applications. Plus d'excuses pour avoir de mauvaise notes!</p>
+
+
+<!------------------------------------------------------------------------------------------>
+
+<section>
+<h3 id="intro" class="toggle">Les syntaxes</h3>
+<div class="content hidden">
+    <p>
+        En C++, la syntaxe est stricte : chaque instruction doit être terminée par un point-virgule (<code>;</code>), et les blocs de code sont délimités par des accolades (<code>{ }</code>).
+    </p>
+
+    <h4>1. Structure d’un programme minimal</h4>
+    <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Bonjour !" &lt;&lt; endl;
+    return 0;
+}</code></pre>
+    <p>
+        - <code>#include &lt;iostream&gt;</code> : permet d’utiliser <code>cout</code><br>
+        - <code>using namespace std;</code> : évite d’écrire <code>std::</code> devant chaque fonction<br>
+        - <code>main()</code> : fonction principale exécutée au démarrage<br>
+        - <code>return 0;</code> : indique que le programme s’est bien terminé
+    </p>
+
+    <h4>2. Point-virgule obligatoire</h4>
+    <p>Chaque ligne d’instruction doit se terminer par <code>;</code>, sinon tu auras une erreur de compilation.</p>
+
+    <h4>3. Blocs de code</h4>
+    <p>
+        Les blocs sont ouverts avec <code>{</code> et fermés avec <code>}</code>, par exemple :
+    </p>
+    <pre><code>if (a > 0) {
+    cout &lt;&lt; "positif";
+}</code></pre>
+
+    <h4>4. Sensibilité à la casse</h4>
+    <p>
+        C++ fait la différence entre <code>Age</code> et <code>age</code>. Les noms de variables sont sensibles à la casse.
+    </p>
+
+    <h4>5. Commentaires</h4>
+    <ul>
+        <li><code>// Ceci est un commentaire sur une ligne</code></li>
+        <li><code>/* Ceci est un commentaire sur plusieurs lignes */</code></li>
+    </ul>
+</div>
+
+</section>
+
+
+
+
+
+<!------------------------------------------------------------------------------------------>
+<section>
+<h3 id="variables" class="toggle">Les variables et les types</h3>
+<div class="content hidden">
+    <p>
+        Une variable est un espace nommé en mémoire dans lequel on peut stocker une valeur. En C++, il est nécessaire de <strong>déclarer le type de la variable</strong> avant de l’utiliser. Cela permet au compilateur de savoir quelle quantité de mémoire réserver et comment interpréter les données.
+    </p>
+
+    <h4>1. Déclaration d'une variable</h4>
+    <p>
+        La syntaxe est la suivante :
+    </p>
+    <pre><code>type nom_de_variable = valeur;</code></pre>
+    <p>
+        Exemple :
+    </p>
+    <pre><code>int age = 20;
+float note = 14.5;
+char lettre = 'A';
+bool admis = true;</code></pre>
+
+    <h4>2. Les principaux types de variables</h4>
+    <ul>
+        <li><code>int</code> : nombres entiers (ex : 0, -5, 42)</li>
+        <li><code>float</code> : nombres décimaux simples précision (ex : 3.14)</li>
+        <li><code>double</code> : nombres décimaux double précision</li>
+        <li><code>char</code> : un seul caractère (entre apostrophes, ex : <code>'a'</code>)</li>
+        <li><code>bool</code> : valeur logique vraie ou fausse (<code>true</code> ou <code>false</code>)</li>
+    </ul>
+
+    <h4>3. Modification d'une variable</h4>
+    <p>
+        Une fois déclarée, on peut changer la valeur d’une variable :
+    </p>
+    <pre><code>int age = 20;
+age = 21; // l'âge est maintenant 21</code></pre>
+
+    <h4>4. Initialisation vs déclaration seule</h4>
+    <pre><code>int x;      // déclaration seule (x contient une valeur indéterminée)
+x = 5;     // initialisation plus tard</code></pre>
+
+    <h4>5. Attention aux erreurs fréquentes</h4>
+    <ul>
+        <li>Ne pas oublier le point-virgule <code>;</code> à la fin d’une ligne</li>
+        <li>Ne pas réutiliser le nom d’une variable déjà déclarée dans le même bloc</li>
+        <li>Utiliser le bon type pour éviter les erreurs de conversion</li>
+    </ul>
+
+    <h4>6. Afficher une variable avec <code>cout</code></h4>
+    <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int age = 20;
+    cout &lt;&lt; "J'ai " &lt;&lt; age &lt;&lt; " ans." &lt;&lt; endl;
+    return 0;
+}</code></pre>
+</div>
+
+</section>
+
+
+
+<!------------------------------------------------------------------------------------------>
+
+<section>
+
+    <h3 id="fonctions" class="toggle">Les fonctions</h3>
+    <div class="content hidden">
+        <p>
+            Une fonction est un bloc de code nommé qui exécute une tâche précise. Elle peut prendre des paramètres et retourner un résultat.
+            Les fonctions permettent de découper un programme en parties plus simples, plus lisibles, et réutilisables.
+        </p>
+    
+        <h4>1. Syntaxe d’une fonction en C++</h4>
+        <pre><code>type nom_de_fonction(paramètres) {
+        // instructions
+        return valeur;
+    }</code></pre>
+    
+        <h4>2. Exemple simple : fonction qui renvoie le carré d’un nombre</h4>
+        <pre><code>int carre(int x) {
+        return x * x;
+    }</code></pre>
+    
+        <p>
+            Ici, <code>carre</code> est une fonction qui prend un entier <code>x</code> et retourne son carré.
+        </p>
+    
+        <h4>3. Appeler une fonction</h4>
+        <pre><code>int resultat = carre(5); // resultat vaut 25</code></pre>
+    
+        <h4>4. Fonction sans retour (procédure)</h4>
+        <p>
+            Si une fonction ne renvoie rien, on utilise le mot-clé <code>void</code> :
+        </p>
+        <pre><code>void direBonjour() {
+        cout &lt;&lt; "Bonjour !" &lt;&lt; endl;
+    }</code></pre>
+    
+        <h4>5. Fonction avec plusieurs paramètres</h4>
+        <pre><code>int addition(int a, int b) {
+        return a + b;
+    }</code></pre>
+    
+        <h4>6. Astuces</h4>
+        <ul>
+            <li>Déclare les fonctions avant le <code>main()</code>, ou écris leurs prototypes en haut.</li>
+            <li>Choisis des noms clairs et explicites.</li>
+            <li>Indente bien tes blocs pour plus de lisibilité.</li>
+        </ul>
+    
+        <h4>7. Exemple complet avec le <code>main()</code></h4>
+        <pre><code>#include &lt;iostream&gt;
+    using namespace std;
+    
+    int carre(int x) {
+        return x * x;
+    }
+    
+    int main() {
+        int n = 4;
+        cout &lt;&lt; "Le carré de " &lt;&lt; n &lt;&lt; " est " &lt;&lt; carre(n) &lt;&lt; endl;
+        return 0;
+    }</code></pre>
+    </div>
+    
+</section>
+
+
+
+<!------------------------------------------------------------------------------------------>
+
+<section>
+    <h3 id="procedure" class="toggle">Les procédures</h3>
+<div class="content hidden">
+    <p>
+        En C++, une procédure est une fonction qui <strong>n’a pas de valeur de retour</strong>. 
+        On utilise pour cela le type spécial <code>void</code>, qui signifie "rien".
+    </p>
+
+    <h4>1. Syntaxe d’une procédure</h4>
+    <pre><code>void nom_de_procedure(paramètres) {
+    // instructions
+}</code></pre>
+
+    <h4>2. Exemple : afficher un message</h4>
+    <pre><code>void afficherMessage() {
+    cout &lt;&lt; "Bienvenue sur LIL1 !" &lt;&lt; endl;
+}</code></pre>
+
+    <p>
+        Cette procédure n’a pas de paramètre et affiche simplement un message. On peut l’appeler comme ceci :
+    </p>
+    <pre><code>int main() {
+    afficherMessage();
+    return 0;
+}</code></pre>
+
+    <h4>3. Exemple avec paramètres</h4>
+    <p>
+        Une procédure peut aussi prendre des paramètres, même si elle ne renvoie rien :
+    </p>
+    <pre><code>void direBonjour(string nom) {
+    cout &lt;&lt; "Bonjour, " &lt;&lt; nom &lt;&lt; " !" &lt;&lt; endl;
+}</code></pre>
+
+    <h4>4. À quoi ça sert ?</h4>
+    <ul>
+        <li>Organiser son code en actions réutilisables</li>
+        <li>Éviter de répéter du code</li>
+        <li>Améliorer la lisibilité d’un programme</li>
+    </ul>
+
+    <h4>5. Astuce</h4>
+    <p>
+        Utilise les procédures pour les actions <strong>qui modifient ou affichent</strong>, et les fonctions (avec retour) pour les <strong>calculs ou traitements</strong>.
+    </p>
+</div>
+
+</section>
+
+<!------------------------------------------------------------------------------------------>
+
+<section> 
+
+    <h3 id="boucle_if" class="toggle">La condition <code>if</code></h3>
+    <div class="content hidden">
+        <p>
+            L’instruction <code>if</code> permet d’exécuter un bloc de code <strong>seulement si une condition est vraie</strong>. 
+            Elle est souvent utilisée pour faire des choix, tester des valeurs ou contrôler le flux d’exécution.
+        </p>
+    
+        <h4>1. Syntaxe de base</h4>
+        <pre><code>if (condition) {
+        // instructions à exécuter si la condition est vraie
+    }</code></pre>
+    
+        <h4>2. Exemple simple</h4>
+        <pre><code>int age = 20;
+    
+    if (age >= 18) {
+        cout &lt;&lt; "Tu es majeur." &lt;&lt; endl;
+    }</code></pre>
+    
+        <p>
+            Si la condition <code>age >= 18</code> est vraie, le message sera affiché.
+        </p>
+    
+        <h4>3. Ajout d’un <code>else</code></h4>
+        <pre><code>if (age >= 18) {
+        cout &lt;&lt; "Majeur" &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; "Mineur" &lt;&lt; endl;
+    }</code></pre>
+    
+        <h4>4. Plusieurs conditions avec <code>else if</code></h4>
+        <pre><code>if (note >= 16) {
+        cout &lt;&lt; "Très bien" &lt;&lt; endl;
+    } else if (note >= 10) {
+        cout &lt;&lt; "Moyen" &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; "Insuffisant" &lt;&lt; endl;
+    }</code></pre>
+    
+        <h4>5. Opérateurs logiques utiles</h4>
+        <ul>
+            <li><code>==</code> : égal</li>
+            <li><code>!=</code> : différent</li>
+            <li><code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code> : comparateurs</li>
+            <li><code>&&</code> : ET logique</li>
+            <li><code>||</code> : OU logique</li>
+            <li><code>!</code> : NON logique (inversion)</li>
+        </ul>
+    
+        <h4>6. Exemple avec plusieurs conditions</h4>
+        <pre><code>int age = 25;
+    bool étudiant = true;
+    
+    if (age &lt; 26 && étudiant) {
+        cout &lt;&lt; "Tarif étudiant appliqué." &lt;&lt; endl;
+    }</code></pre>
+    
+        <p>
+            Ici, le message s’affiche uniquement si la personne a moins de 26 ans <strong>et</strong> est étudiante.
+        </p>
+    
+        <h4>7. Attention aux erreurs courantes</h4>
+        <ul>
+            <li>Ne pas oublier les parenthèses autour de la condition : <code>if ( ... )</code></li>
+            <li>Ne pas confondre <code>=</code> (affectation) et <code>==</code> (comparaison)</li>
+            <li>Bien utiliser les accolades <code>{}</code> même pour une seule ligne (par sécurité)</li>
+        </ul>
+    </div>
+    
+
+</section>
+
+<!------------------------------------------------------------------------------------------>
+
+<section>
+
+
+    <h3 id="boucle_while" class="toggle">La boucle <code>while</code></h3>
+<div class="content hidden">
+    <p>
+        La boucle <code>while</code> permet de répéter un bloc d’instructions tant qu’une condition est vraie.
+        Contrairement à <code>for</code>, on l’utilise quand le nombre d’itérations n’est pas connu à l’avance.
+    </p>
+
+    <h4>1. Syntaxe générale</h4>
+    <pre><code>while (condition) {
+    // instructions à répéter
+}</code></pre>
+
+    <h4>2. Exemple : afficher les nombres de 1 à 5</h4>
+    <pre><code>int i = 1;
+while (i <= 5) {
+    cout &lt;&lt; i &lt;&lt; endl;
+    i++;
+}</code></pre>
+
+    <p>
+        Ce code affiche les nombres de 1 à 5.
+    </p>
+
+    <h4>3. Boucle infinie (⚠️ à éviter)</h4>
+    <pre><code>while (true) {
+    // boucle qui ne s'arrête jamais à moins d'utiliser break
+}</code></pre>
+
+    <p>
+        Tu peux utiliser une condition toujours vraie si tu veux interrompre manuellement :
+    </p>
+    <pre><code>while (true) {
+    int x;
+    cout &lt;&lt; "Entrer un nombre (&gt;= 0 pour continuer, -1 pour quitter): ";
+    cin &gt;&gt; x;
+    if (x == -1) break;
+}</code></pre>
+
+    <h4>4. Exemple avec une condition d'entrée utilisateur</h4>
+    <pre><code>string nom;
+while (nom != "admin") {
+    cout &lt;&lt; "Nom d'utilisateur : ";
+    cin &gt;&gt; nom;
+}</code></pre>
+
+    <p>
+        Cette boucle tourne tant que l’utilisateur n’a pas tapé "admin".
+    </p>
+
+    <h4>5. Erreurs fréquentes</h4>
+    <ul>
+        <li>Oublier d’initialiser la variable de contrôle (<code>int i = 0;</code>)</li>
+        <li>Oublier de modifier la variable dans la boucle → boucle infinie</li>
+        <li>Confondre <code>=</code> et <code>==</code></li>
+    </ul>
+
+    <h4>6. Différences avec <code>do...while</code></h4>
+    <p>
+        <code>while</code> vérifie la condition <strong>avant</strong> la première exécution.<br>
+        <code>do...while</code> exécute au moins une fois <strong>avant</strong> de vérifier la condition :
+    </p>
+    <pre><code>int i = 1;
+do {
+    cout &lt;&lt; i &lt;&lt; endl;
+    i++;
+} while (i <= 5);</code></pre>
+</div>
+
+
+</section>
+
+<!------------------------------------------------------------------------------------------>
+
+<section>  
+    <h3 id="boucle_for" class="toggle">La boucle <code>for</code></h3>
+    <div class="content hidden">
+        <p>
+            La boucle <code>for</code> est utilisée lorsque l’on connaît à l’avance le nombre d’itérations à effectuer. 
+            Elle est idéale pour répéter une action un certain nombre de fois, ou pour parcourir les éléments d’un tableau.
+        </p>
+    
+        <h4>1. Syntaxe générale</h4>
+        <pre><code>for (initialisation; condition; incrémentation) {
+        // instructions à répéter
+    }</code></pre>
+    
+        <p>
+            - <strong>Initialisation</strong> : exécute une seule fois au début<br>
+            - <strong>Condition</strong> : testée avant chaque itération<br>
+            - <strong>Incrémentation</strong> : exécutée à la fin de chaque tour
+        </p>
+    
+        <h4>2. Exemple simple : afficher les nombres de 1 à 5</h4>
+        <pre><code>for (int i = 1; i <= 5; i++) {
+        cout &lt;&lt; i &lt;&lt; endl;
+    }</code></pre>
+    
+        <p>
+            Ce code affiche :
+        </p>
+        <pre><code>1
+    2
+    3
+    4
+    5</code></pre>
+    
+        <h4>3. Boucle décroissante</h4>
+        <pre><code>for (int i = 5; i >= 1; i--) {
+        cout &lt;&lt; i &lt;&lt; endl;
+    }</code></pre>
+    
+        <h4>4. Parcourir un tableau</h4>
+        <pre><code>int notes[3] = {14, 16, 12};
+    
+    for (int i = 0; i &lt; 3; i++) {
+        cout &lt;&lt; "Note " &lt;&lt; i+1 &lt;&lt; ": " &lt;&lt; notes[i] &lt;&lt; endl;
+    }</code></pre>
+    
+        <h4>5. Astuces et bonnes pratiques</h4>
+        <ul>
+            <li>Commence toujours à zéro si tu parcours un tableau C++</li>
+            <li>Attention aux erreurs de dépassement (<code>i &lt; taille</code>)</li>
+            <li>Utilise des noms de variables explicites quand possible</li>
+        </ul>
+    
+        <h4>6. Erreurs fréquentes</h4>
+        <ul>
+            <li>Utiliser <code>i &lt;= taille</code> au lieu de <code>i &lt; taille</code> → débordement</li>
+            <li>Oublier d’incrémenter <code>i++</code> → boucle infinie</li>
+            <li>Confondre <code>=</code> (affectation) avec <code>==</code> (comparaison)</li>
+        </ul>
+    </div>
+    
+</section>
+<!------------------------------------------------------------------------------------------>
+
+<section>
+    <h3 id="tableaux" class="toggle">Les tableaux</h3>
+    <div class="content hidden">
+        <p>
+            Un <strong>tableau</strong> (ou <em>array</em>) est une structure de données qui permet de stocker plusieurs valeurs du même type dans une seule variable. 
+            Chaque valeur est accessible par un <strong>indice</strong>, qui commence toujours à 0.
+        </p>
+    
+        <h4>1. Déclaration et initialisation</h4>
+        <p>Voici deux façons de déclarer un tableau :</p>
+        <pre><code>// Déclaration + affectation manuelle
+    int notes[3];
+    notes[0] = 15;
+    notes[1] = 12;
+    notes[2] = 18;
+    
+    // Déclaration + initialisation directe
+    int notes[] = {15, 12, 18};</code></pre>
+    
+        <h4>2. Accès aux éléments</h4>
+        <p>On accède à chaque élément via son indice :</p>
+        <pre><code>cout &lt;&lt; notes[1]; // Affiche 12</code></pre>
+    
+        <p><strong>⚠️ Attention :</strong> <code>notes[3]</code> dans ce cas provoque une erreur, car l'indice 3 est hors du tableau.</p>
+    
+        <h4>3. Parcourir un tableau avec une boucle <code>for</code></h4>
+        <pre><code>int notes[] = {15, 12, 18};
+    int taille = 3;
+    
+    for (int i = 0; i &lt; taille; i++) {
+        cout &lt;&lt; "Note " &lt;&lt; (i+1) &lt;&lt; ": " &lt;&lt; notes[i] &lt;&lt; endl;
+    }</code></pre>
+    
+        <h4>4. Tableaux à deux dimensions</h4>
+        <p>Un tableau à deux dimensions peut être vu comme un tableau de tableaux (matrice).</p>
+        <pre><code>int matrice[2][3] = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+    
+    cout &lt;&lt; matrice[1][2]; // Affiche 6</code></pre>
+    
+        <h4>5. Astuces et erreurs fréquentes</h4>
+        <ul>
+            <li>💡 Toujours faire attention à la taille du tableau</li>
+            <li>💡 Le dernier indice d’un tableau de taille n est <code>n - 1</code></li>
+            <li>⚠️ <strong>Pas de vérification automatique</strong> en C++ : un indice invalide peut provoquer un comportement imprévisible</li>
+            <li>💡 Utilise une constante pour la taille si elle est fixe :
+            <pre><code>const int N = 5;
+    int tab[N];</code></pre></li>
+        </ul>
+    
+        <h4>6. À noter</h4>
+        <p>
+            En C++, les tableaux sont assez "bruts". Si tu veux quelque chose de plus sécurisé ou dynamique, tu peux plus tard utiliser des <code>std::vector</code>.
+        </p>
+    </div>
+    
+</section>
+
+{%endblock%}

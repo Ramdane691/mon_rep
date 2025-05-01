@@ -1,0 +1,37 @@
+{%extends "base.html"%}
+{%block main_content%}
+
+<h2>UNIX (Linux)</h2>
+
+<section>
+    <h3 class="toggle">💻 Exercice : Lister le contenu d’un dossier</h3>
+<div class="content hidden">
+    <p>Écris une commande UNIX qui permet de lister les fichiers présents dans un dossier :</p>
+
+    <input type="text" id="reponse1" placeholder="Tape ta commande ici..." style="width: 100%; padding: 8px; margin-bottom: 10px;">
+
+    <button onclick="verifierCommande1()">Vérifier</button>
+
+    <p id="resultat1" style="margin-top: 10px; font-weight: bold;"></p>
+</div>
+
+<script>
+function verifierCommande1() {
+    const input = document.getElementById("reponse1").value.trim();
+    const resultat = document.getElementById("resultat1");
+
+    // Réponse(s) acceptée(s)
+    const bonnesReponses = ["ls", "ls ."];
+
+    if (bonnesReponses.includes(input)) {
+        resultat.textContent = "✅ Correct !";
+        resultat.style.color = "green";
+    } else {
+        resultat.textContent = "❌ Faux. Essaie encore.";
+        resultat.style.color = "red";
+    }
+}
+</script>
+
+</section>
+{%endblock%}

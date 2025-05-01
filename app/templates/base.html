@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site de présentation des UEs de la licence informatique">
+    <meta name="keywords" content="MIAGE, UEs, licence, informatique">
+    <meta name="author" content="Ramdane">
+    <script src="{{ url_for('static', filename='script/lifapi.js') }}" defer></script>
     <title>{{ titre }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -8,8 +14,8 @@
 
     {% include 'header.html' %}
     
+    <div class="main-content">
     {% block main_content %}{% endblock %}
-
-    {% include 'menu.html' %}
+    </div>
 </body>
 </html>

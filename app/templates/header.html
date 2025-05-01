@@ -1,5 +1,20 @@
-<header>
-    <div class="header">
-        <h1>Mon site</h1>
+<header class="header">
+    <div class="nav-container">
+        <div class="nav-left">
+            <a href="/">
+                <img src="{{ url_for('static', filename='img/LIL1.png') }}" alt="Logo" class="logo">
+            </a>
+            <div class="site-title">
+                <h1>LicenceInfoLyon1</h1>
+                <p>Le site d’aide pour les étudiants en informatique à Lyon 1</p>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="/">Accueil</a>
+            <a href="/L1">Licence 1</a>
+            <a href="/L2">Licence 2</a>
+            <a href="/L3">Licence 3</a>
+            <a href="/about">À propos</a>
+        </nav>
     </div>
 </header>

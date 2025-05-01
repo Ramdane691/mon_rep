@@ -4,4 +4,4 @@ main = Blueprint('accueil', __name__)
 
 @main.route('/')
 def accueil():
-    return render_template('accueil.html', titre ="Bienvenue")
+    return render_template('accueil.html', titre ="LicenceInfoLyon1 – LIL1")
