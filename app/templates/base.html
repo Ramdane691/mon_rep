@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ titre }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    {% include 'header.html' %}
+    
+    {% block main_content %}{% endblock %}
+
+    {% include 'menu.html' %}
+</body>
+</html>
