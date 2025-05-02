@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h2>Conception & Développement d'Applications</h2>
+
+<p>
+    Personnellement, dans cette UE, j’ai beaucoup galéré avec la librairie SDL. Si c'est aussi ton cas, cette page est faite pour toi.
+    J’y résume les notions principales, quelques explications sur SDL, et ce que j’aurais aimé avoir sous la main pour mieux m’en sortir.
+</p>
+
+
+<h3 class="toggle">Découverte de la SDL</h3>
+<div class="content hidden">
+    <p>
+        SDL (Simple DirectMedia Layer) est une bibliothèque en C qui permet de créer des fenêtres, gérer des graphismes, des sons et des événements clavier/souris.
+        Elle est utilisée dans cette UE pour créer une interface graphique dans des projets comme des jeux, des simulations ou des visualisations.
+    </p>
+    <p>
+        La prise en main est un peu rude : entre la compilation, l’initialisation des fenêtres, la gestion des événements... y a de quoi se perdre 😅.
+    </p>
+    <pre><code>// Initialisation typique
+if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+    printf(\"Erreur SDL_Init : %s\\n\", SDL_GetError());
+    return 1;
+}
+
+SDL_Window* win = SDL_CreateWindow(\"Ma fenêtre\", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+</code></pre>
+    <p>
+        On combine ensuite une boucle de rendu (affichage) avec une gestion des événements, un peu comme une boucle de jeu.
+    </p>
+</div>
+
+
+<h3 class="toggle">Organisation du code</h3>
+<div class="content hidden">
+    <p>
+        Dans cette UE, on met aussi l’accent sur la modularité : séparer le code en fichiers `.h` / `.cpp`, créer des structures de données claires (struct, classes), et avoir une architecture propre.
+    </p>
+    <ul>
+        <li>Un fichier pour la gestion graphique (SDL)</li>
+        <li>Un fichier pour la logique (moteur du jeu ou simulation)</li>
+        <li>Un fichier principal `main.cpp`</li>
+    </ul>
+    <p>
+        Par exemple, on peut avoir un fichier `graphique.h` pour les fonctions liées à SDL, et un fichier `logique.h` pour la logique de l’application.
+        Cela permet de mieux s’y retrouver et de faciliter la maintenance du code.
+    </p>
+    <p>
+        On peut aussi utiliser des classes pour encapsuler la logique et la gestion graphique, mais attention à ne pas trop complexifier le code.
+        L’idée est de garder une structure claire et lisible.
+    </p>
+    <p>
+        Voici un exemple de structure de projet :
+    </p>
+    <pre><code>mon_projet/
+├── main.cpp
+├── graphique.h
+├── graphique.cpp
+├── logique.h
+├── logique.cpp
+└── ressources  
+</code></pre>
+    <p>
+        Dans `main.cpp`, on inclut les fichiers d’en-tête et on appelle les fonctions de gestion graphique et logique.
+    </p>
+    <pre><code>#include \"graphique.h\"
+#include \"logique.h\"
+int main(int argc, char* argv[]) {
+    // Initialisation de SDL
+    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+        printf(\"Erreur SDL_Init : %s\\n\", SDL_GetError());
+        return 1;
+    }
+
+    // Création de la fenêtre
+    SDL_Window* win = SDL_CreateWindow(\"Ma fenêtre\", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+    if (!win) {
+        printf(\"Erreur SDL_CreateWindow : %s\\n\", SDL_GetError());
+        return 1;
+    }
+
+    // Boucle principale
+    while (1) {
+        // Gestion des événements
+        gerer_evenements();
+        
+        // Logique de l'application
+        mettre_a_jour_logique();
+
+        // Affichage
+        afficher_graphique();
+    }
+
+    // Nettoyage
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+}
+</code></pre>
+    <p>
+        Dans `graphique.h`, on peut définir les fonctions de gestion graphique :
+    </p>
+    <pre><code>void afficher_graphique();
+void gerer_evenements();
+void initialiser_graphique();
+void nettoyer_graphique();
+</code></pre>
+    <p>
+        Et dans `logique.h`, on peut définir les fonctions de logique :
+    </p>
+    <pre><code>void mettre_a_jour_logique();
+void initialiser_logique();
+void nettoyer_logique();
+</code></pre>
+    <p>
+        Cela permet de garder le code organisé et de faciliter la compréhension.
+    </p>
+    <p>
+        En résumé, l’important est de bien structurer son code, de séparer la logique et la gestion graphique, et de garder une architecture claire.
+        Cela facilitera la maintenance et la compréhension du code, surtout dans des projets plus complexes.
+    </p>
+    <p>
+        N’hésite pas à utiliser des commentaires pour expliquer ton code, même si tu es le seul à le lire.
+        Ça peut t’aider à te souvenir de ce que tu as fait et pourquoi.</p>
+</div>
+
+<h3 class="toggle">Exemples de projets</h3>
+<div class="content hidden">
+    <p>
+        Je te met a disposition quelques les projets que j’ai réalisés dans cette UE.
+    </p>
+    <p>
+        Ils ne sont pas parfaits, mais ils peuvent te donner une idée de la structure et de l’organisation du code.
+        Tu peux les utiliser comme base pour tes propres projets ou pour t’inspirer.
+    </p>
+    <p>
+        <ul>
+        <li style="color: blue;"><a href="{{ url_for('static', filename='ressources/projets/module-image-main.tar.gz') }}">Module image</a></li>
+        <li style="color:blue;"><a href="{{ url_for('static', filename='ressources/projets/riseofserpentard-main.tar.gz') }}">Projet RiseOfSerpentard (un Snake particulier)</a></li>
+        </ul>
+</div>
+
+<h3 class="toggle">Conseils si tu galères</h3>
+<div class="content hidden">
+    <ul>
+        <li>Teste chaque étape indépendamment (ex : d’abord créer une fenêtre, ensuite gérer un événement, etc.)</li>
+        <li>Commente ton code au fur et à mesure, même pour toi-même</li>
+        <li>Garde un projet minimal fonctionnel et ajoute petit à petit</li>
+        <li>Regarde des petits tutos SDL en ligne : parfois 5 minutes vidéo valent 1h de docs</li>
+    </ul>
+</div>
+
+{%endblock %}

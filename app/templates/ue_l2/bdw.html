@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h2>Base de Données pour le Web</h2>
+
+<section><h3 class="toggle">Algèbre relationnel</h3>
+<div class="content hidden">
+    <p>L'algèbre relationnelle couvre les concepts fondamentaux des bases de données relationnelles, y compris les opérations de sélection, de projection, de jointure et d'union.</p>
+    <p>Ces opérations permettent de manipuler et d'interroger les données stockées dans des tables relationnelles.</p>
+    <p>Voici un aperçu des principales opérations de l'algèbre relationnelle :</p>
+    <ul>
+        <li><strong>Sélection (σ)</strong> : permet de filtrer les lignes d'une table en fonction d'une condition.</li>
+        <li><strong>Projection (π)</strong> : permet de sélectionner certaines colonnes d'une table.</li>
+        <li><strong>Jointure (⨝)</strong> : permet de combiner des lignes de deux tables en fonction d'une condition.</li>
+        <li><strong>Union (∪)</strong> : permet de combiner les lignes de deux tables, en éliminant les doublons.</li>
+        <li><strong>Différence (-)</strong> : permet de soustraire les lignes d'une table à celles d'une autre.</li>
+        <li><strong>Produit cartésien (×)</strong> : permet de combiner toutes les lignes de deux tables.</li>
+        <li><strong>Renommage (ρ)</strong> : permet de renommer une table ou une colonne.</li>
+        <li><strong>Intersection (∩)</strong> : permet de trouver les lignes communes entre deux tables.</li>
+    </ul>
+    <p>Les étudiants apprendront à écrire des requêtes en utilisant l'algèbre relationnelle pour extraire des informations pertinentes à partir de bases de données.</p>
+    <p>Exemple d'expression algébrique :</p>
+    <pre><p>σ (age > 18) (étudiants)</p></pre>
+    <p>Cette expression sélectionne toutes les lignes de la table "étudiants" où l'âge est supérieur à 18.</p>
+</div>
+</section>
+
+<section><h3 class="toggle">SQL</h3>
+<div class="content hidden">
+    <p>Le SQL (Structured Query Language) est le langage standard utilisé pour interagir avec les bases de données relationnelles.</p>
+    <p>Il permet de créer, lire, mettre à jour et supprimer des données dans une base de données.</p>
+    <p>Voici un aperçu des principales commandes SQL :</p>
+    <ul>
+        <li><strong>SELECT</strong> : permet de sélectionner des données à partir d'une ou plusieurs tables.</li>
+        <li><strong>INSERT</strong> : permet d'ajouter de nouvelles lignes dans une table.</li>
+        <li><strong>UPDATE</strong> : permet de modifier des lignes existantes dans une table.</li>
+        <li><strong>DELETE</strong> : permet de supprimer des lignes d'une table.</li>
+        <li><strong>CREATE TABLE</strong> : permet de créer une nouvelle table dans la base de données.</li>
+        <li><strong>ALTER TABLE</strong> : permet de modifier la structure d'une table existante.</li>
+        <li><strong>DROP TABLE</strong> : permet de supprimer une table de la base de données.</li>
+        <li><strong>JOIN</strong> : permet de combiner des lignes de deux tables en fonction d'une condition.</li>
+        <li><strong>WHERE</strong> : permet de filtrer les résultats d'une requête en fonction d'une condition.</li>
+        <li><strong>ORDER BY</strong> : permet de trier les résultats d'une requête.</li>
+        <li><strong>GROUP BY</strong> : permet de regrouper les résultats d'une requête en fonction d'une ou plusieurs colonnes.</li>
+        <li><strong>HAVING</strong> : permet de filtrer les résultats d'une requête après le regroupement.</li>
+        <li><strong>UNION</strong> : permet de combiner les résultats de deux requêtes.</li>
+        <li><strong>INTERSECT</strong> : permet de trouver les lignes communes entre deux requêtes.</li>
+        <li><strong>FROM</strong> : permet de spécifier la table à partir de laquelle sélectionner des données.</li>
+        <li><strong>AS</strong> : permet de renommer une table ou une colonne dans une requête.</li>
+        <li><strong>LIMIT</strong> : permet de limiter le nombre de résultats retournés par une requête.</li>
+    </ul>
+
+    <p>Voici des exemples d'utilisation : </p>
+    <pre><p>SELECT nom, age FROM étudiants WHERE age > 18;</p></pre>
+    <p>Cette requête sélectionne les colonnes "nom" et "age" de la table "étudiants" où l'âge est supérieur à 18.</p>
+    <pre><p>INSERT INTO étudiants (nom, age) VALUES ('Alice', 20);</p></pre>
+    <p>Cette requête insère une nouvelle ligne dans la table "étudiants" avec le nom "Alice" et l'âge 20.</p>
+    <pre><p>UPDATE étudiants SET age = 21 WHERE nom = 'Alice';</p></pre>
+    <p>Cette requête met à jour l'âge de l'étudiant nommé "Alice" dans la table "étudiants".</p>
+    <pre><p>DELETE FROM étudiants WHERE nom = 'Alice';</p></pre>
+    <p>Cette requête supprime l'étudiant nommé "Alice" de la table "étudiants".</p>
+</div>
+</section>
+
+<section><h3 class="toggle">Modélisation</h3>
+<div class="content hidden">
+    <p>La modélisation des données est le processus de création d'un modèle conceptuel qui représente les données et leurs relations dans une base de données.</p>
+    <p>Les étudiants apprendront à créer des diagrammes entité-association (DEA) pour représenter les entités, les attributs et les relations entre elles.</p>
+    <p>Voici un aperçu des concepts clés de la modélisation :</p>
+    <ul>
+        <li><strong>Entité</strong> : un objet ou un concept du monde réel que l'on souhaite représenter dans la base de données.</li>
+        <li><strong>Attribut</strong> : une caractéristique ou une propriété d'une entité.</li>
+        <li><strong>Relation</strong> : une association entre deux ou plusieurs entités.</li>
+        <li><strong>Cardinalité</strong> : indique le nombre minimum et maximum d'occurrences d'une entité dans une relation.</li>
+        <li><strong>Clé primaire</strong> : un attribut ou un ensemble d'attributs qui identifie de manière unique chaque occurrence d'une entité.</li>
+        <li><strong>Clé étrangère</strong> : un attribut qui établit une relation entre deux tables en faisant référence à la clé primaire d'une autre table.</li>
+    </ul>
+    <p>Les étudiants apprendront à créer des diagrammes entité-association (DEA) pour représenter les entités, les attributs et les relations entre elles.</p>
+    <p>Voici un exemple de diagramme entité-association :</p>
+    <pre><p>Étudiant (id, nom, age)
+Cours (id, nom, crédits)
+Inscription (id_étudiant, id_cours)</p></pre>
+    <p>Dans cet exemple, nous avons trois entités : "Étudiant", "Cours" et "Inscription".</p>
+    <p>La relation "Inscription" relie les étudiants aux cours auxquels ils sont inscrits.</p>
+    <p>Les étudiants apprendront à créer des diagrammes entité-association (DEA) pour représenter les entités, les attributs et les relations entre elles.</p>
+    <p>Voici un exemple de diagramme entité-association :</p>
+    <pre><p>Étudiant (id, nom, age)
+Cours (id, nom, crédits)
+Inscription (id_étudiant, id_cours)</p></pre>
+    <p>Dans cet exemple, nous avons trois entités : "Étudiant", "Cours" et "Inscription".</p>
+    <p>La relation "Inscription" relie les étudiants aux cours auxquels ils sont inscrits.</p>
+</div>
+</section>
+
+{%endblock %}
