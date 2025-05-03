@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+
+<form method="POST" action="/contact">
+    <label for="email">Votre adresse email :</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+  
+    <label for="message">Votre message :</label><br>
+    <textarea id="message" name="message" rows="5" required></textarea><br><br>
+     
+    <button style="background-color: beige;" type="submit"><a href="/apropos">Envoyer</a></button>
+  </form>
+  
+  <button style="background-color: beige;">
+    <a href="/apropos">annuler</a>
+  </button>
+  
+<p>Je suis ouvert à toutes les suggestions, critiques constructives, et même les compliments !</p>
+
+{% endblock %}
