@@ -41,7 +41,7 @@ function testerCode(id, expected) {
     const formData = new FormData();
     formData.append("code", textarea.value);
 
-    fetch("http://localhost:5050/compile", {
+    fetch("/compile", {
         method: "POST",
         body: formData
     })
