@@ -3,9 +3,7 @@ import subprocess
 import uuid
 import os
 
-#from flask import Blueprint, request, jsonify
 main = Blueprint('cpp', __name__)
-
 
 @main.route('/compile', methods=['POST'])
 def compile_code():
@@ -37,7 +35,6 @@ def compile_code():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     finally:
-        # Nettoyage
         if os.path.exists(filename):
             os.remove(filename)
         if os.path.exists(executable):
