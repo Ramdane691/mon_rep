@@ -2,6 +2,17 @@
 
 {% block main_content %}
 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flash-messages">
+      {% for message in messages %}
+        <p style="color: green; background-color: lightgreen;">{{ message }}</p>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<h2>Contact</h2>
 
 <form method="POST" action="/contact">
     <label for="email">Votre adresse email :</label><br>
@@ -10,11 +21,11 @@
     <label for="message">Votre message :</label><br>
     <textarea id="message" name="message" rows="5" required></textarea><br><br>
      
-    <button style="background-color: beige;" type="submit"><a href="/apropos">Envoyer</a></button>
+    <button style="background-color: greenyellow; font-style: inherit;" type="submit">Envoyer</button>
   </form>
   
   <button style="background-color: beige;">
-    <a href="/apropos">annuler</a>
+    <a href="/apropos">retour</a>
   </button>
   
 <p>Je suis ouvert à toutes les suggestions, critiques constructives, et même les compliments !</p>

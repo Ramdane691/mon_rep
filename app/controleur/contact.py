@@ -4,26 +4,53 @@ from email.mime.text import MIMEText
 
 main = Blueprint('contact', __name__)
 
+# 💌 Config Gmail
+TON_EMAIL = "r.amaouz02@gmail.com"
+MOT_DE_PASSE_APP = "njpnarthxjiotprr"  # Mot de passe d’application généré via Google
+
 @main.route('/contact', methods=['GET', 'POST'])
 def contact():
-    if request.method == 'POST':
-        email = request.form['email']
-        message = request.form['message']
+    print("🛎️ Route /contact appelée")
 
-        msg = MIMEText(f"Message de {email}:\n\n{message}")
-        msg['Subject'] = 'Message via LicenceInfoLyon1'
-        msg['From'] = email
-        msg['To'] = 'abc@gmail.com'
+    if request.method == 'POST':
+        print("📩 Requête POST reçue")
+        email_utilisateur = request.form['email']
+        message_utilisateur = request.form['message']
+
+        print("✉️ Email saisi :", email_utilisateur)
+        print("📝 Message saisi :", message_utilisateur)
+
+        ...
+
+        # Tu composes le mail que TOI tu recevras
+        contenu = f"Tu as reçu un message via LicenceInfoLyon1 !\n\n" \
+                  f"De : {email_utilisateur}\n\n" \
+                  f"Message :\n{message_utilisateur}"
+
+        msg = MIMEText(contenu)
+        msg['Subject'] = '📩 Nouveau message via LicenceInfoLyon1'
+        msg['From'] = TON_EMAIL  # L’adresse de connexion SMTP (ton Gmail)
+        msg['To'] = TON_EMAIL    # Tu le reçois aussi
 
         try:
             with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-                smtp.login('ton_mail@gmail.com', 'mot_de_passe_app')
+                smtp.login(TON_EMAIL, MOT_DE_PASSE_APP)
                 smtp.send_message(msg)
-            flash("Message envoyé avec succès !")
+
+            flash("Ton message a bien été envoyé, merci !")
         except Exception as e:
-            print(e)
-            flash("Erreur lors de l'envoi du message.")
+            print("Erreur :", e)
+            flash("Oups ! Une erreur est survenue.")
 
         return redirect('/contact')
 
     return render_template('contact.html')
+
+
+
+
+
+
+
+
+

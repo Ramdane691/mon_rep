@@ -28,5 +28,7 @@ def create_app():
     app.register_blueprint(apropos_main)
     app.register_blueprint(contact_main)
 
+    app.secret_key = "njpnarthxjiotprr"
+
     
     return app
