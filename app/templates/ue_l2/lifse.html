@@ -2,6 +2,83 @@
 
 {% block main_content %}
 
-<h2>Sytème d'exploitation</h2>
+<h2>Système d'exploitation</h2>
+<p>Cette page explique les bases du fonctionnement d'un système d'exploitation à travers les fonctions système, les processus, les pipes et les sockets.</p>
 
-{%endblock %}
+<h3 class="toggle">Fonctions système : read, write, open, close</h3>
+<div class="content hidden">
+    <p>Ces fonctions sont disponibles via les bibliothèques <code>&lt;unistd.h&gt;</code> et <code>&lt;fcntl.h&gt;</code>. Elles permettent de manipuler des fichiers au niveau bas.</p>
+    <ul>
+        <li><strong>open(path, flags)</strong> : ouvre un fichier et renvoie un descripteur d'entier. <code>O_RDONLY</code>, <code>O_WRONLY</code>, etc.</li>
+        <li><strong>read(fd, buffer, size)</strong> : lit <code>size</code> octets depuis le fichier <code>fd</code> dans le buffer.</li>
+        <li><strong>write(fd, buffer, size)</strong> : écrit <code>size</code> octets du buffer vers le fichier <code>fd</code>.</li>
+        <li><strong>close(fd)</strong> : ferme le fichier.</li>
+    </ul>
+    <p><strong>Exemple :</strong></p>
+    <pre><code>#include &lt;fcntl.h&gt;
+#include &lt;unistd.h&gt;
+
+int main() {
+    int fd = open("fichier.txt", O_RDONLY);
+    char buf[100];
+    read(fd, buf, 100);
+    write(1, buf, 100);  // vers stdout
+    close(fd);
+}</code></pre>
+</div>
+
+<h3 class="toggle">Processus et fork()</h3>
+<div class="content hidden">
+    <p>Un processus est un programme en exécution. On peut en créer un nouveau avec <code>fork()</code>.</p>
+    <ul>
+        <li><strong>pid_t fork()</strong> : crée un nouveau processus. Retourne 0 au fils, le PID du fils au parent.</li>
+        <li>Chaque processus a son espace mémoire indépendant.</li>
+    </ul>
+    <p><strong>Exemple :</strong></p>
+    <pre><code>#include &lt;unistd.h&gt;
+#include &lt;iostream&gt;
+
+int main() {
+    pid_t pid = fork();
+    if (pid == 0) std::cout &lt;&lt; "Je suis le fils";
+    else std::cout &lt;&lt; "Je suis le père";
+}</code></pre>
+    <p>On peut ensuite utiliser <code>wait()</code> pour attendre la fin d'un processus fils.</p>
+</div>
+
+<h3 class="toggle">Pipes</h3>
+<div class="content hidden">
+    <p>Les pipes permettent à deux processus de communiquer entre eux.</p>
+    <ul>
+        <li><strong>int pipe(fd[2])</strong> : crée deux descripteurs de fichiers, un pour lire, un pour écrire.</li>
+    </ul>
+    <p><strong>Exemple :</strong></p>
+    <pre><code>#include &lt;unistd.h&gt;
+
+int main() {
+    int fd[2];
+    pipe(fd);
+    if (fork() == 0) {
+        close(fd[1]);
+        char buf[20];
+        read(fd[0], buf, 20);
+        write(1, buf, 20);
+    } else {
+        close(fd[0]);
+        write(fd[1], "Salut fils", 11);
+    }
+}</code></pre>
+</div>
+
+<h3 class="toggle">Sockets</h3>
+<div class="content hidden">
+    <p>Les sockets permettent la communication entre deux programmes, souvent via un réseau.</p>
+    <ul>
+        <li><strong>socket()</strong> : crée une socket</li>
+        <li><strong>bind()</strong>, <strong>listen()</strong>, <strong>accept()</strong> : côté serveur</li>
+        <li><strong>connect()</strong> : côté client</li>
+    </ul>
+    <p><strong>Remarque :</strong> ce sujet est souvent introduit dans les projets client/serveur, où un programme accepte des connexions et l'autre envoie des données.</p>
+</div>
+
+{% endblock %}

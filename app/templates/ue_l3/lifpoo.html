@@ -1,0 +1,333 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h2>Programmation Orientée Objet</h2>
+
+<p>Cette page présente les concepts de la programmation orientée objet, y compris les classes, les objets, l'héritage et le polymorphisme. </p>
+<p>Je parie que tu as quelques difficultés avec les diagrammes UML. Pas de pannique, tu n'es pas le seul. Moi même j'ai galéré avec ça. C'est pour ça que je te propose de voir tout ca ici.</p>
+
+<h3 class="toggle">Diagramme de cas d'utilisation</h3>
+<div class="hidden content">
+    <p>Le diagramme de cas d'utilisation (ou use case diagram en anglais) est un type de diagramme UML (Unified Modeling Language) qui sert à modéliser les fonctionnalités principales d’un système du point de vue de ses utilisateurs (appelés acteurs). Il est très utilisé en analyse et conception logicielle pour visualiser ce que fait le système, sans entrer dans les détails techniques.</p>
+    <h4>Les élément de bas d'un diagramme de cas d'utilisation</h4>
+    <ul>
+        <li><strong>Acteur :</strong> Un acteur représente un utilisateur ou un système externe qui interagit avec le système. Il peut s'agir d'un utilisateur humain, d'un autre système ou d'une organisation.</li>
+        <li><strong>Cas d'utilisation :</strong> Un cas d'utilisation représente une fonctionnalité ou un service que le système offre à l'acteur. Il décrit ce que l'acteur peut faire avec le système.</li>
+        <li><strong>Relation :</strong> Les relations entre les acteurs et les cas d'utilisation sont représentées par des lignes. Elles montrent comment les acteurs interagissent avec le système.
+        <ul>
+            <li><strong>Association :</strong> Une ligne simple qui relie un acteur à un cas d'utilisation, indiquant que l'acteur interagit avec le cas d'utilisation.</li>
+            <li><strong>Généralisation :</strong> Une flèche avec une pointe ouverte qui indique qu'un acteur ou un cas d'utilisation hérite des caractéristiques d'un autre acteur ou cas d'utilisation.</li>
+            <li><strong>Inclusion :</strong> Une flèche avec une pointe pleine qui indique qu'un cas d'utilisation inclut un autre cas d'utilisation.</li>
+            <li><strong>Extension :</strong> Une flèche avec une pointe pleine qui indique qu'un cas d'utilisation peut être étendu par un autre cas d'utilisation.</li>
+        </ul></li>
+        </ul>
+
+    <h4>Exemple d'un site universitaire étudiant</h4>
+    <strong>Acteurs :</strong>
+    <ul>
+        <li>Étudiant</li>
+        <li>Administrateur</li>
+    </ul>
+
+    <strong>Cas d'utilisation :</strong>
+    <ul>
+        <li>Se connecter</li>
+        <li>Consulter les notes</li>
+        <li>S'inscrire à un cours</li>
+        <li>Ajouter un cours (admin)</li>
+        <li>Gérer les étudiants (admin)</li>
+    </ul>
+    <img style="height: 530px; width: auto;" src="{{ url_for('static', filename='img/poo/uml1.png') }}" alt="Diagramme de cas d'utilisation" class="img-fluid">
+
+</div>
+
+
+
+<h3 class="toggle">Diagramme de classes</h3>
+<div class="hidden content">
+    <p>Le diagramme de classes UML permet de modéliser la structure statique d’un système en représentant les classes, leurs attributs, leurs méthodes et les relations entre elles.</p>
+
+    <h4>Structure d’une classe</h4>
+  
+    <pre>
+  +------------------+
+  | NomClasse        |
+  +------------------+
+  | attributs        |
+  +------------------+
+  | méthodes         |
+  +------------------+
+    </pre>
+  
+    <div class="box">
+      <strong>Exemple :</strong>
+      <pre>
+  +------------------+
+  | Client           |
+  +------------------+
+  | id : int         |
+  | nom : string     |
+  +------------------+
+  | passerCommande() |
+  | annulerCommande()|
+  +------------------+
+      </pre>
+    </div>
+  
+    <h4>Types de relations entre classes</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Symbole UML</th>
+          <th>Signification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Association</td>
+          <td>Ligne simple</td>
+          <td>Lien logique entre deux classes</td>
+        </tr>
+        <tr>
+          <td>Agrégation</td>
+          <td>Losange vide</td>
+          <td>Une classe contient une autre (faible dépendance)</td>
+        </tr>
+        <tr>
+          <td>Composition</td>
+          <td>Losange plein</td>
+          <td>Une classe possède l’autre (forte dépendance)</td>
+        </tr>
+        <tr>
+          <td>Héritage</td>
+          <td>Flèche vide</td>
+          <td>Une classe hérite d’une autre</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h4>Exemple concret : gestion de commandes</h4>
+    <ul>
+      <li><strong>Client</strong> : id, nom, <code>passerCommande()</code>, <code>annulerCommande()</code></li>
+      <li><strong>Commande</strong> : numéro, date, <code>calculerTotal()</code>, <code>annuler()</code></li>
+      <li><strong>Produit</strong> : référence, prix, <code>mettreÀJourPrix()</code></li>
+      <li><strong>LigneCommande</strong> : quantité, sousTotal, <code>calculerSousTotal()</code></li>
+    </ul>
+  
+    <h4>Relations dans le diagramme</h4>
+    <ul>
+      <li>Un client passe plusieurs commandes (<code>1 → 0..*</code>)</li>
+      <li>Une commande contient plusieurs lignes de commande (composition)</li>
+      <li>Chaque ligne commande référence un produit</li>
+      <li>Un produit peut apparaître dans plusieurs lignes commande</li>
+    </ul>
+    
+    <img style="height: 530px; width: auto;" src="{{ url_for('static', filename='img/poo/uml2.png') }}" alt="Diagramme de cas d'utilisation" class="img-fluid">
+
+    <p>Ce type de diagramme est utile pour comprendre la structure du code ou de la base de données, et pour la communication entre développeurs.</p>
+</div>  
+
+
+
+
+
+<!---/////////////////////////////////////////////////-->
+
+
+<h3 class="toggle">Diagramme d'objets</h3>
+<div class="hidden content">
+    <p>Le diagramme d'objets est un type de diagramme UML qui représente des instances spécifiques de classes et leurs relations à un moment donné. Il est souvent utilisé pour illustrer des exemples concrets d'objets dans un système.</p>
+
+    <div class="explanation">
+        <p>Le diagramme d’objet UML montre une <strong>photographie du système à un instant donné</strong>. Il est basé sur le diagramme de classes, mais au lieu des classes, on a des <strong>objets concrets avec des valeurs</strong>.</p>
+      </div>
+    
+      <h4>Exemple : Gestion de commande</h4>
+    
+      <div class="object-box">
+        <strong>client1 : Client</strong><br>
+        id = 1<br>
+        nom = "Ramdane"
+      </div>
+    
+      <div class="object-box">
+        <strong>commande1 : Commande</strong><br>
+        numéro = 17<br>
+        date = "2025-05-03"
+      </div>
+    
+      <div class="object-box">
+        <strong>produit1 : Produit</strong><br>
+        référence = "LIV123"<br>
+        prix = 19.99
+      </div>
+    
+      <div class="object-box">
+        <strong>produit2 : Produit</strong><br>
+        référence = "CLAV456"<br>
+        prix = 49.90
+      </div>
+    
+      <div class="object-box">
+        <strong>ligne1 : LigneCommande</strong><br>
+        quantité = 1<br>
+        sousTotal = 19.99
+      </div>
+    
+      <div class="object-box">
+        <strong>ligne2 : LigneCommande</strong><br>
+        quantité = 1<br>
+        sousTotal = 49.90
+      </div>
+    
+      <h4>Associations</h4>
+      <ul>
+        <li><code>client1</code> est lié à <code>commande1</code></li>
+        <li><code>commande1</code> contient <code>ligne1</code> et <code>ligne2</code></li>
+        <li><code>ligne1</code> est liée à <code>produit1</code></li>
+        <li><code>ligne2</code> est liée à <code>produit2</code></li>
+      </ul>
+
+      <img style="height: 530px; width: auto;" src="{{ url_for('static', filename='img/poo/uml3.png') }}" alt="Diagramme d'objets" class="img-fluid">
+    <p>Le diagramme d'objets est utile pour illustrer des exemples concrets d'objets dans un système, ce qui peut aider à la compréhension du fonctionnement du système.</p>
+</div>
+
+
+<!---/////////////////////////////////////////////////-->
+
+<h3 class="toggle">Diagramme de séquence</h3>
+<div class="hidden content">
+    <p>Le diagramme de séquence est un type de diagramme UML qui illustre comment les objets interagissent entre eux dans le temps. Il montre l'ordre des messages échangés entre les objets pour réaliser une fonctionnalité spécifique.</p>
+
+    <h4>Structure d'un diagramme de séquence</h4>
+    <ul>
+        <li><strong>Acteurs :</strong> Représentent les utilisateurs ou systèmes externes qui interagissent avec le système.</li>
+        <li><strong>Objets :</strong> Représentent les instances de classes qui participent à l'interaction.</li>
+        <li><strong>Lignes de vie :</strong> Représentent la durée de vie d'un objet pendant l'interaction.</li>
+        <li><strong>Messages :</strong> Représentent les communications entre les objets, indiquant l'ordre dans lequel ils sont échangés.</li>
+    </ul>
+
+    <h4>Exemple : Démineur</h4>
+    <p>On considère le jeu du démineur. Dans ce jeu, le joueur peut
+      cliquer sur une case pour découvrir son contenu. Si c’est une mine, il perd la partie. Si la case
+      est numérotée, le jeu vérifie si toutes les cases non-minées ont été découvertes, auquel cas la
+      partie est gagnée. Si la case est vide, les cases vides ou numérotées alentours sont découvertes
+      récursivement</p>
+      <p>On propose de faire un diagrame de séquence pour le scénario <italic>"Le joueur découvre une
+        case."</italic></p>
+    <img style="height: 530px; width: auto;" src="{{ url_for('static', filename='img/poo/uml4.png') }}" alt="Diagramme de séquence" class="img-fluid">
+
+    <p>Le diagramme de séquence est utile pour comprendre comment les objets interagissent dans le temps et pour identifier les étapes nécessaires à la réalisation d'une fonctionnalité.</p>
+    <p>Il est souvent utilisé pour la documentation et la communication entre les membres de l'équipe de développement.</p>
+</div>
+
+
+<!---/////////////////////////////////////////////////-->
+
+
+<h3 class="toggle">Diagramme de collaboration</h3>
+<div class="hidden content">
+    <p>Le diagramme de collaboration est un type de diagramme UML qui illustre comment les objets interagissent entre eux pour réaliser une fonctionnalité spécifique. Il met l'accent sur les relations entre les objets et les messages échangés.</p>
+
+    <h4>Structure d'un diagramme de collaboration</h4>
+    <ul>
+        <li><strong>Objets :</strong> Représentent les instances de classes qui participent à l'interaction.</li>
+        <li><strong>Lignes de vie :</strong> Représentent la durée de vie d'un objet pendant l'interaction.</li>
+        <li><strong>Messages :</strong> Représentent les communications entre les objets, indiquant l'ordre dans lequel ils sont échangés.</li>
+    </ul>
+
+    <h4>Exemple : distributeur de boisson</h4>
+    <p>Un distributeur automatique permet à un utilisateur d’acheter une boisson en utilisant soit de la monnaie, soit une carte bancaire. Le fonctionnement du système est le suivant :
+      <ul>
+        <li>L’utilisateur sélectionne d’abord une boisson via un clavier.</li>
+        <li>Le code de la boisson est transmis à la machine, qui enregistre la commande.</li>
+        <li>L’utilisateur peut ensuite :</li>
+        <ul>
+          <li>Insérer de la monnaie : la machine vérifie si le montant est suffisant et, si c’est le cas, elle délivre la boisson.</li>
+          <li>Utiliser une carte bancaire : la machine vérifie si la carte est valide et, si c’est le cas, elle délivre la boisson.</li>
+        </ul>
+        <li>En fonction du mode paiement :</li>
+        <ul>
+          <li>Si l’utilisateur a inséré de la monnaie, la machine lui valide le paiement.</li>
+          <li>Si l’utilisateur a utilisé une carte bancaire, le lecteur de carte lit la carte, envoie le code à la machine, qui valide le paiement.</li>
+      </ul>
+      <li>Une fois le paiement validé, la machine envoie un signal au distributeur pour fabriquer la boisson.</li>
+      <li>La boisson est livrée à l’utilisateur, qui la reçoit.</li>
+      </ul>
+    </p>
+    <img style="height: 530px; width: auto;" src="{{ url_for('static', filename='img/poo/uml5.png') }}" alt="Diagramme de collaboration" class="img-fluid">
+
+    <p>Le diagramme de collaboration est utile pour comprendre comment les objets interagissent entre eux et pour identifier les relations entre les objets dans un système.</p>
+    <p>Il est souvent utilisé pour la documentation et la communication entre les membres de l'équipe de développement.</p>
+    <p>Il est important de noter que le diagramme de collaboration est moins courant que le diagramme de séquence, car il peut être plus difficile à lire et à comprendre.</p>
+</div>
+
+
+
+
+<!---/////////////////////////////////////////////////-->
+
+
+<h3 class="toggle">Diagramme d'état</h3>
+<div class="hidden content">
+    <p>Le diagramme d'état est un type de diagramme UML qui illustre les différents états d'un objet au cours de son cycle de vie et les transitions entre ces états. Il est utilisé pour modéliser le comportement dynamique d'un système.</p>
+
+    <h4>Structure d'un diagramme d'état</h4>
+    <ul>
+        <li><strong>États :</strong> Représentent les différentes conditions ou situations dans lesquelles un objet peut se trouver.</li>
+        <li><strong>Transitions :</strong> Représentent les changements d'état, souvent déclenchés par des événements ou des actions.</li>
+        <li><strong>Événements :</strong> Représentent les actions ou conditions qui provoquent une transition entre deux états.</li>
+    </ul>
+
+    <h4>Exemple : Machine à laver</h4>
+    <p>On cherche à modéliser le fonctionnement d'une machine à laver. </p>
+      <ul>
+      <li>Dans un premier temps, on considère juste les trois états principaux : Éteint, Lavage et Séchage. </li>
+      <li>Le bouton Mode permet de passer d’un état à l’autre suivant le cycle Éteint → Lavage → Séchage → Éteint.</li> 
+      <li>Le bouton Démarrer permet de lancer la machine si on est dans l’état Lavage ou Séchage. </li>
+      <li>Comme on s’intéresse ici uniquement au panneau d’options, le fait de démarrer la machine est l’état final du système.</li>
+        </ul>
+
+    <img style="height: 530px; width: auto;" src="{{ url_for('static', filename='img/poo/uml6.png') }}" alt="Diagramme d'état" class="img-fluid">
+
+    <p>Le diagramme d'état est utile pour comprendre le comportement dynamique d'un objet et pour identifier les différents états possibles et les transitions entre eux.</p>
+    <p>Il est souvent utilisé pour la documentation et la communication entre les membres de l'équipe de développement.</p>
+    <p>Il est important de noter que le diagramme d'état est particulièrement utile pour les systèmes réactifs, où le comportement d'un objet dépend de son état actuel.</p>
+</div>
+
+
+
+<!---/////////////////////////////////////////////////-->
+<h3 class="toggle">Diagramme d'activité</h3>
+<div class="hidden content">
+    <p>Le diagramme d'activité est un type de diagramme UML qui illustre le flux de contrôle ou d'activités dans un système. Il est utilisé pour modéliser les processus, les workflows et les algorithmes.</p>
+
+    <h4>Structure d'un diagramme d'activité</h4>
+    <ul>
+        <li><strong>Activités :</strong> Représentent les actions ou tâches à réaliser.</li>
+        <li><strong>Transitions :</strong> Représentent le passage d'une activité à une autre.</li>
+        <li><strong>Décisions :</strong> Représentent des points de décision où le flux peut diverger en fonction de conditions.</li>
+        <li><strong>Début et fin :</strong> Indiquent le point de départ et le point d'arrivée du processus.</li>
+    </ul>
+
+    <h4>Exemple : la coinche</h4>
+    <p>Voici certaines règle de ce jeu :</p>
+    <ul> 
+      <li>On doit toujours fournir la couleur demandée à l’entame si l’on en possède.</li>
+      <li>Si l’on ne possède pas de carte dans la couleur demandée, et que notre partenaire
+        est maître (c’est-à-dire qu’il a joué la meilleure carte sur le tapis) : on peut alors
+        jouer n’importe quelle carte ; on se “défausse”.</li>
+      <li>Si l’on ne possède pas de carte dans la couleur demandée, et que notre partenaire n’est
+        pas maître : on doit jouer une carte de la couleur demandée si l’on en possède ; sinon,
+        on peut jouer n’importe quelle carte.</li>
+    <img style="height: 530px; width: auto;" src="{{ url_for('static', filename='img/poo/uml7.png') }}" alt="Diagramme d'activité" class="img-fluid">
+
+    <p>Le diagramme d'activité est utile pour comprendre le flux de contrôle dans un système et pour identifier les différentes étapes d'un processus.</p>
+    <p>Il est souvent utilisé pour la documentation et la communication entre les membres de l'équipe de développement.</p>
+    <p>Il est important de noter que le diagramme d'activité est particulièrement utile pour modéliser des processus complexes avec de nombreuses étapes et décisions.</p>
+</div>
+<!---/////////////////////////////////////////////////-->
+<p>⚠️ Certains exemples et diagrammes sont extraits du cours et sont utilisés ici uniquement à des fins pédagogiques. Ils ne sont pas de ma propre création.</p>
+{%endblock %}
