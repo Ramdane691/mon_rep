@@ -7,6 +7,8 @@ def create_app():
     from .controleur.licence1 import main as licence1_main
     from .controleur.licence2 import main as licence2_main
     from .controleur.licence3 import main as licence3_main
+    from .controleur.cpp import main as cpp_main
+
 
  #   from .controleur.licence1 import main
 
@@ -14,5 +16,7 @@ def create_app():
     app.register_blueprint(licence1_main)
     app.register_blueprint(licence2_main)
     app.register_blueprint(licence3_main)
+    app.register_blueprint(cpp_main)
+
     
     return app

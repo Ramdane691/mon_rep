@@ -1,11 +1,11 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # 🔥 à ajouter
+from flask_cors import CORS  #à ajouter
 import subprocess
 import os
 import uuid
 
 app = Flask(__name__)
-CORS(app)  # 🔓 Autorise les requêtes depuis un autre port
+CORS(app)  # Autorise les requêtes depuis un autre port
 
 @app.route('/compile', methods=['POST'])
 def compile_code():
