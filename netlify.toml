@@ -1,0 +1,12 @@
+[build]
+  command = "pip install -r requirements.txt && python3 freeze.py"
+  publish = "build"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+
+# (Optionnel) cache agressif pour les assets fingerprintés
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
