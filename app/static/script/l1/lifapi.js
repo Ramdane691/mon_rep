@@ -38,7 +38,7 @@ const BACKEND_URL =
     window.location.hostname === "localhost"
         ? "http://127.0.0.1:5000"
         : "https://lil1.onrender.com"; // 🔁 remplace par ton URL Render finale
-        
+
 function testerCode(id, expected) {
     const textarea = document.getElementById("code-" + id);
     const output = document.getElementById("resultat-" + id);
@@ -48,7 +48,7 @@ function testerCode(id, expected) {
 
     console.log("➡️ Envoi du code :", textarea.value);
 
-    fetch("/compile/", {
+    fetch("https://lil1-backend.onrender.com/compile/", {
         method: "POST",
         body: formData
     })
