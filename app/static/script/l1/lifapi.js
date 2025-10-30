@@ -33,7 +33,12 @@ function verifierCarre() {
     }
 }
 
-
+// URL du backend Flask (Render ou local)
+const BACKEND_URL =
+    window.location.hostname === "localhost"
+        ? "http://127.0.0.1:5000"
+        : "https://lil1.onrender.com"; // 🔁 remplace par ton URL Render finale
+        
 function testerCode(id, expected) {
     const textarea = document.getElementById("code-" + id);
     const output = document.getElementById("resultat-" + id);
@@ -41,18 +46,21 @@ function testerCode(id, expected) {
     const formData = new FormData();
     formData.append("code", textarea.value);
 
-    fetch("/compile", {
+    console.log("➡️ Envoi du code :", textarea.value);
+
+    fetch("/compile/", {
         method: "POST",
         body: formData
     })
     .then(res => res.json())
     .then(data => {
-        if (data.result !== undefined) {
-            if (data.result.trim() === expected) {
+        console.log("✅ Réponse reçue :", data);
+        if (data.output !== undefined) {
+            if (data.output.trim() === expected) {
                 output.textContent = "✅ Correct !";
                 output.style.color = "green";
             } else {
-                output.textContent = "❌ Faux. Sortie obtenue : " + data.result;
+                output.textContent = "❌ Faux. Sortie obtenue : " + data.output;
                 output.style.color = "red";
             }
         } else {
@@ -61,11 +69,8 @@ function testerCode(id, expected) {
         }
     })
     .catch(err => {
+        console.error("❌ Erreur fetch :", err);
         output.textContent = "❌ Erreur de requête.";
         output.style.color = "red";
     });
 }
-
-
-
-
