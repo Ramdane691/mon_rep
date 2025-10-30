@@ -5,7 +5,7 @@ import os
 
 main = Blueprint('cpp', __name__)
 
-@main.route('/compile', methods=['POST'])
+@main.route('/compile/', methods=['POST'])
 def compile_code():
     code = request.form.get('code')
     if not code:

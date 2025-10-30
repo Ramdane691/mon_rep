@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site de présentation des UEs de la licence informatique">
+    <meta name="keywords" content="MIAGE, UEs, licence, informatique">
+    <meta name="author" content="Ramdane">
+    <script src="../../static/script/l1/lifapi.js" defer></script>
+    <script src="../../static/script/l1/unix.js" defer></script>
+    <script src="../../static/script/main.js" defer></script>
+    <link rel="icon" href="../../static/favicon.ico">
+
+    <title>LicenceInfoLyon1 – LIL1</title>
+    <link rel="stylesheet" href="../../static/style/style.css">
+</head>
+<body>
+
+    <header class="header">
+    <div class="nav-container">
+        <div class="nav-left">
+            <a href="/">
+                <img src="../../static/img/LIL1.png" alt="Logo" class="logo">
+            </a>
+            <div class="site-title">
+                <h1 style="font-size: 40px;">LicenceInfoLyon1</h1>
+                <p>Le site d’aide réalisé par un étudiant ... <br/> ... pour les étudiants en informatique à Lyon 1</p>
+            </div>
+        </div>
+        <nav class="nav-links" style="font-size: 30px;">
+            
+            
+            <div class="dropdown">
+                <a href="/">Accueil</a>
+            </div>
+
+
+            <div class="dropdown">
+                <a href="/L1/" class="dropbtn">Licence 1</a>
+                <div class="dropdown-content">
+                    <a href="/L1/algorithmique/">Algo & Prog Impérative</a>
+                    <a href="/L1/unix/">UNIX (Linux)</a>
+                    <a href="/L1/lifami/">Applications Math/Info</a>
+                    <a href="/L1/recursif/">Algo & Prog Récursive</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="/L2/" class="dropbtn">Licence 2</a>
+                <div class="dropdown-content">
+                    <a href="/L2/lifapsd/">Algo & Prog Structure de Données</a>
+                    <a href="/L2/lifarchi/">Architecture des Ordinateurs</a>
+                    <a href="/L2/stat/">Stats pour l'Informatique</a>
+                    <a href="/L2/lifapcd/">Conception & Développement d'Applications</a>
+                    <a href="/L2/bdw/">Base de Données pour le Web</a>
+                    <a href="/L2/pf/">Programmation Fonctionnelle</a>
+                    <a href="/L2/lifse/">Système d'exploitation</a>
+                </div>
+            </div>    
+            
+            <div class="dropdown">
+                <a href="/L3/" class="dropbtn">Licence 3</a>
+                <div class="dropdown-content">
+                    <a href="/L3/lifpca/">Programmation Concurente</a>
+                    <a href="/L3/">Bases de Données Avancées</a>
+                    <a href="/L3/">Réseaux et Sécurité</a>
+                    <a href="/L3/lifweb/">Programmation Web</a>
+                    <a href="/L3/lifpoo/">Programmation Orientée Objet</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <a href="/apropos/">À propos</a>
+            </div>
+        </nav>
+    </div>
+</header>
+    
+    <div class="main-content">
+    
+
+<h2>Algo & Prog Structure de Données</h2>
+
+<h3 class="toggle">Allocation dynamique</h3>
+<div class="content hidden">
+    <p>L’allocation dynamique permet de réserver de la mémoire pendant l’exécution du programme avec les opérateurs <code>new</code> et <code>delete</code>. Cela permet de créer des structures dont la taille peut varier pendant l'exécution (contrairement aux tableaux statiques).</p>
+    <pre>
+        <code>int *p = new int[10];     //allocation</code><br>
+        <code>delete[] p;    //liberation</code>
+    </pre>
+    <p>Il est important de libérer la mémoire allouée pour éviter les fuites de mémoire. On utilise <code>delete</code> pour libérer la mémoire d'un objet ou d'un tableau.</p>
+    <p>Exemple d'allocation dynamique :</p>
+    <pre>
+        <code>int *p = new int[10];</code><br>
+        <code>for (int i = 0; i &lt; 10; i++) {</code><br>
+        <code>&nbsp;&nbsp;p[i] = i;</code><br>
+        <code>}</code><br>
+        <code>delete[] p;</code>
+    </pre>
+    <p>Dans cet exemple, on alloue un tableau de 10 entiers, on le remplit avec des valeurs, puis on libère la mémoire.</p>
+    <p>Il est important de noter que si on oublie de libérer la mémoire, cela peut entraîner des fuites de mémoire, ce qui peut ralentir le programme ou même le faire planter.</p>
+    
+</div>
+
+
+<h3 class="toggle">Classe & Objet</h3>
+<div class="content hidden">
+    <p>Une classe est une structure de données qui regroupe des variables et des fonctions. Elle permet de créer des objets qui contiennent des données et des méthodes pour manipuler ces données.</p>
+    <p>Exemple de classe :</p>
+    <pre>
+        <code>class Point {</code><br>
+        <code>&nbsp;&nbsp;public:</code><br>
+        <code>&nbsp;&nbsp;int x, y;</code><br>
+        <code>&nbsp;&nbsp;Point(int x, int y) { this->x = x; this->y = y; }</code><br>
+        <code>&nbsp;&nbsp;void afficher() { cout &lt;&lt; "Point(" &lt;&lt; x &lt;&lt; ", " &lt;&lt; y &lt;&lt; ")" &lt;&lt; endl; }</code><br>
+        <code>}</code>
+    </pre>
+    <p>Dans cet exemple, on définit une classe <code>Point</code> avec deux attributs (x et y) et une méthode pour afficher le point.</p>
+    <p>On peut créer un objet de la classe <code>Point</code> comme ceci :</p>
+    <pre>
+        <code>Point p(10, 20);</code><br>
+        <code>p.afficher();</code>
+    </pre>
+    <p>On peut aussi créer des classes dérivées qui héritent des attributs et méthodes d'une classe de base. Cela permet de créer des hiérarchies de classes.</p>
+    <p>Exemple de classe dérivée :</p>
+    <pre>
+        <code>class Point3D : public Point {</code><br>
+        <code>&nbsp;&nbsp;public:</code><br>
+        <code>&nbsp;&nbsp;int z;</code><br>
+        <code>&nbsp;&nbsp;Point3D(int x, int y, int z) : Point(x, y) { this->z = z; }</code><br>
+        <code>&nbsp;&nbsp;void afficher() { cout &lt;&lt; "Point3D(" &lt;&lt; x &lt;&lt; ", " &lt;&lt; y &lt;&lt; ", " &lt;&lt; z &lt;&lt; ")" &lt;&lt; endl; }</code><br>
+        <code>}</code>
+    </pre>
+    <p>Dans cet exemple, on définit une classe <code>Point3D</code> qui hérite de la classe <code>Point</code> et ajoute un attribut z.</p>
+    <p>On peut créer un objet de la classe <code>Point3D</code> comme ceci :</p>
+    <pre>
+        <code>Point3D p3d(10, 20, 30);</code><br>
+        <code>p3d.afficher();</code>
+    </pre>
+    <p>Il est important de noter que les classes et objets permettent de structurer le code et de le rendre plus lisible et maintenable.</p>
+</div>
+
+<h3 class="toggle">Algorithmes de tri</h3>
+<div class="content hidden">
+    <p>Les algorithmes de tri sont des méthodes pour organiser des données dans un certain ordre (croissant ou décroissant). Il existe plusieurs algorithmes de tri, chacun ayant ses propres avantages et inconvénients.</p>
+    <p>Voici quelques algorithmes de tri courants :</p>
+    <ul>
+        <li><strong>Tri par insertion</strong> : construit progressivement un tableau trié en insérant chaque élément à sa place.</li>
+        <p>Le tri par insertion fonctionne en parcourant le tableau de gauche à droite et en insérant chaque élément à sa place dans la partie triée du tableau.</p>
+        <p>Exemple de tri par insertion :</p>
+        <pre>
+            <code>for (int i = 1; i &lt; n; i++) {</code><br>
+            <code>&nbsp;&nbsp;int key = arr[i];</code><br>
+            <code>&nbsp;&nbsp;int j = i - 1;</code><br>
+            <code>&nbsp;&nbsp;while (j &gt;= 0 && arr[j] &gt; key) {</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;arr[j + 1] = arr[j];</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;j--;</code><br>
+            <code>&nbsp;&nbsp;}</code><br>
+            <code>&nbsp;&nbsp;arr[j + 1] = key;</code><br>
+            <code>}</code>
+        </pre>
+        <p>Dans cet exemple, on parcourt le tableau à partir du deuxième élément et on insère chaque élément à sa place dans la partie triée du tableau. L'algorithme est donc de complexité O(n²) dans le pire des cas.</p>
+
+        <li><strong>Tri par sélection</strong> : trouve l'élément le plus petit et le place
+        au début du tableau, puis répète le processus pour le reste du tableau.</li>
+        <p>Le tri par sélection fonctionne en parcourant le tableau à la recherche de l'élément le plus petit, puis en l'échangeant avec le premier élément du tableau.</p>
+        <p>Exemple de tri par sélection :</p>
+        <pre>
+            <code>for (int i = 0; i &lt; n - 1; i++) {</code><br>
+            <code>&nbsp;&nbsp;int minIndex = i;</code><br>
+            <code>&nbsp;&nbsp;for (int j = i + 1; j &lt; n; j++) {</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] &lt; arr[minIndex]) {</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minIndex = j;</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;}</code><br>
+            <code>&nbsp;&nbsp;}</code><br>
+            <code>&nbsp;&nbsp;if (minIndex != i) {</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;swap(arr[i], arr[minIndex]);</code><br>
+            <code>&nbsp;&nbsp;}</code><br>
+            <code>}</code>
+        </pre>
+        <p>Dans cet exemple, on parcourt le tableau à la recherche de l'élément le plus petit, puis on l'échange avec le premier élément du tableau. L'algorithme est donc de complexité O(n²) dans le pire des cas.</p>
+        <li><strong>Tri par fusion</strong> : divise le tableau en deux moitiés, trie chaque moitié, puis fusionne les deux moitiés triées.</li>
+        <p>Le tri par fusion fonctionne en divisant le tableau en deux moitiés, en triant chaque moitié, puis en fusionnant les deux moitiés triées.</p>
+        <p>Exemple de tri par fusion :</p>
+        <pre>
+            <code>void merge(int arr[], int left, int mid, int right) {</code><br>
+            <code>&nbsp;&nbsp;int n1 = mid - left + 1;</code><br>
+            <code>&nbsp;&nbsp;int n2 = right - mid;</code><br>
+            <code>&nbsp;&nbsp;int L[n1], R[n2];</code><br>
+            <code>&nbsp;&nbsp;for (int i = 0; i &lt; n1; i++) L[i] = arr[left + i];</code><br>
+            <code>&nbsp;&nbsp;for (int j = 0; j &lt; n2; j++) R[j] = arr[mid + 1 + j];</code><br>
+            <code>&nbsp;&nbsp;int i = 0, j = 0, k = left;</code><br>
+            <code>&nbsp;&nbsp;while (i &lt; n1 && j &lt; n2) {</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;if (L[i] &lt;= R[j]) {</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr[k] = L[i];</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i++;</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;} else {</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr[k] = R[j];</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j++;</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;}</code><br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;k++;</code><br>
+            <code>&nbsp;&nbsp;}</code><br>
+            <code>&gt;}</code><br></pre>
+        <p>Dans cet exemple, on divise le tableau en deux moitiés, on trie chaque moitié, puis on fusionne les deux moitiés triées. L'algorithme est donc de complexité O(n log n) dans le pire des cas.</p>
+    </ul>
+</div>
+
+<h3 class="toggle">Programmation séparée</h3>
+<div class="content hidden">
+    <p>La programmation séparée consiste à séparer le code en plusieurs fichiers pour faciliter la gestion et la maintenance du code. Cela permet de diviser le code en modules, chacun ayant une responsabilité spécifique.</p>
+    <p>Pour organiser le code :</p>
+    <ul>
+        <li>Créer un fichier d'en-tête (.h) pour les déclarations de classes et de fonctions.</li>
+        <li>Créer un fichier source (.cpp) pour les définitions de classes et de fonctions.</li>
+        <li>Inclure le fichier d'en-tête dans le fichier source avec la directive <code>#include</code>.</li>
+        <li>Utiliser des namespaces pour éviter les conflits de noms.</li>
+        <li>Utiliser des commentaires pour expliquer le code.</li>
+        </ul>
+    <p>Exemple de fichier d'en-tête :</p>
+    <pre>
+        <code>class Point {</code><br>
+        <code>&nbsp;&nbsp;public:</code><br>
+        <code>&nbsp;&nbsp;int x, y;</code><br>
+        <code>&nbsp;&nbsp;Point(int x, int y);</code><br>
+        <code>&nbsp;&nbsp;void afficher();</code><br>
+        <code>}</code>
+    </pre>
+    <p>Dans cet exemple, on définit une classe <code>Point</code> avec deux attributs (x et y) et deux méthodes (constructeur et afficher).</p>
+    <p>Exemple de fichier source :</p>
+    <pre>
+        <code>#include "Point.h"</code><br>
+        <code>Point::Point(int x, int y) { this->x = x; this->y = y; }</code><br>
+        <code>void Point::afficher() { cout &lt;&lt; "Point(" &lt;&lt; x &lt;&lt; ", " &lt;&lt; y &lt;&lt; ")" &lt;&lt; endl; }</code>
+    </pre>
+    <p>Dans cet exemple, on définit le constructeur et la méthode afficher de la classe <code>Point</code>.</p>
+    <p>Exemple de fichier principal :</p>
+    <pre>
+        <code>// fichier main.cpp</code><br>
+        <code>#include "Point.h"</code><br>
+        <code>int main() {</code><br>
+        <code>&nbsp;&nbsp;Point p(10, 20);</code><br>
+        <code>&nbsp;&nbsp;p.afficher();</code><br>
+        <code>}</code>
+    </pre>
+    <p>Dans cet exemple, on inclut un fichier d'en-tête <code>Point.h</code> qui contient la définition de la classe <code>Point</code>.</p>
+    <p>Il est important de noter que la programmation séparée permet de structurer le code et de le rendre plus lisible et maintenable.</p>
+</div>
+
+<h3 class="toggle">Tableaux dynamiques</h3>
+<div class="content hidden">
+    <p>Un tableau dynamique est un tableau dont la taille peut varier pendant l'exécution du programme. On peut utiliser des pointeurs pour créer des tableaux dynamiques.</p>
+    <p>Exemple de tableau dynamique :</p>
+    <pre>
+        <code>int *arr = new int[n];</code><br>
+        <code>for (int i = 0; i &lt; n; i++) {</code><br>
+        <code>&nbsp;&nbsp;arr[i] = i;</code><br>
+        <code>}</code><br>
+        <code>delete[] arr;</code>
+    </pre>
+    <p>Dans cet exemple, on crée un tableau dynamique de taille n, on le remplit avec des valeurs, puis on libère la mémoire.</p>
+    <p>Il est important de libérer la mémoire allouée pour éviter les fuites de mémoire. On utilise <code>delete</code> pour libérer la mémoire d'un tableau dynamique.</p>
+    <p>Il est aussi possible d'utiliser la bibliothèque <code>vector</code> de C++ pour créer des tableaux dynamiques. La bibliothèque <code>vector</code> gère automatiquement la mémoire et permet d'ajouter ou de supprimer des éléments facilement.</p>
+    <p>Exemple d'utilisation de <code>vector</code> :</p>
+    <pre>
+        <code>#include &lt;vector&gt;</code><br>
+        <code>std::vector&lt;int&gt; arr;</code><br>
+        <code>arr.push_back(10);</code><br>
+        <code>arr.push_back(20);</code><br>
+        <code>arr.pop_back();</code>
+    <p>Dans cet exemple, on crée un tableau dynamique avec la bibliothèque <code>vector</code>, on ajoute des éléments avec <code>push_back</code>, puis on supprime le dernier élément avec <code>pop_back</code>.</p>
+    <p>Il est important de noter que les tableaux dynamiques permettent de gérer des données dont la taille peut varier pendant l'exécution du programme, ce qui est très utile dans de nombreux cas.</p>
+</div>
+
+<h3 class="toggle">Listes</h3>
+<div class="content hidden">
+    <p>Une liste est une structure de données qui permet de stocker des éléments de manière dynamique. Contrairement aux tableaux, les listes peuvent contenir un nombre variable d'éléments et permettent d'insérer ou de supprimer des éléments facilement.</p>
+    <p>Il existe plusieurs types de listes, notamment :</p>
+    <ul>
+        <li><strong>Liste chaînée</strong> : chaque élément (appelé nœud) contient une valeur et un pointeur vers le nœud suivant.</li>
+        <li><strong>Liste doublement chaînée</strong> : chaque nœud contient une valeur, un pointeur vers le nœud suivant et un pointeur vers le nœud précédent.</li>
+        <li><strong>Liste circulaire</strong> : le dernier nœud pointe vers le premier nœud, formant ainsi une boucle.</li>
+    </ul>
+    <p>Exemple de liste chaînée :</p>
+    <pre>
+        <code>struct Node {</code><br>
+        <code>&nbsp;&nbsp;int data;</code><br>
+        <code>&nbsp;&nbsp;Node *next;</code><br>
+        <code>}</code><br>
+        <code>Node *head = nullptr;</code><br>
+        <code>Node *newNode = new Node();</code><br>
+        <code>newNode-&gt;data = 10;</code><br>
+        <code>newNode-&gt;next = head;</code><br>
+        <code>head = newNode;</code>
+    </pre>
+    <p>Dans cet exemple, on crée une structure de nœud pour la liste chaînée, on alloue de la mémoire pour un nouveau nœud, on lui assigne une valeur et on l'ajoute au début de la liste.</p>
+    <p>Il est important de libérer la mémoire allouée pour éviter les fuites de mémoire. On utilise <code>delete</code> pour libérer la mémoire d'un nœud.</p>
+    <p>Exemple de libération de mémoire :</p>
+    <pre>
+        <code>Node *temp = head;</code><br>
+        <code>while (temp != nullptr) {</code><br>
+        <code>&nbsp;&nbsp;Node *next = temp-&gt;next;</code><br>
+        <code>&nbsp;&nbsp;delete temp;</code><br>
+        <code>&nbsp;&nbsp;temp = next;</code><br>
+        <code>}</code>
+    </pre>  
+    <p>Dans cet exemple, on parcourt la liste chaînée et on libère la mémoire de chaque nœud.</p>
+    <p>Il est aussi possible d'utiliser la bibliothèque <code>list</code> de C++ pour créer des listes. La bibliothèque <code>list</code> gère automatiquement la mémoire et permet d'ajouter ou de supprimer des éléments facilement.</p>
+    <p>Exemple d'utilisation de <code>list</code> :</p>
+    <pre>
+        <code>#include &lt;list&gt;</code><br>
+        <code>std::list&lt;int&gt; myList;</code><br>
+        <code>myList.push_back(10);</code><br>
+        <code>myList.push_back(20);</code><br>
+        <code>myList.pop_back();</code>
+    </pre>  
+    <p>Dans cet exemple, on crée une liste avec la bibliothèque <code>list</code>, on ajoute des éléments avec <code>push_back</code>, puis on supprime le dernier élément avec <code>pop_back</code>.</p>
+    <p>Il est important de noter que les listes permettent de gérer des données dont la taille peut varier pendant l'exécution du programme, ce qui est très utile dans de nombreux cas.</p>
+</div>
+
+<h3 class="toggle">Arbres</h3>
+<div class="content hidden">
+    <p>Un arbre est une structure de données qui permet de stocker des éléments de manière hiérarchique. Chaque élément (appelé nœud) peut avoir plusieurs enfants, mais un seul parent. Le nœud racine est le nœud supérieur de l'arbre.</p>
+    <p>Il existe plusieurs types d'arbres, notamment :</p>
+    <ul>
+        <li><strong>Arbre binaire</strong> : chaque nœud a au plus deux enfants (gauche et droite).</li>
+        <li><strong>Arbre binaire de recherche</strong> : un arbre binaire où chaque nœud respecte la propriété de recherche (les valeurs du sous-arbre gauche sont inférieures à la valeur du nœud, et celles du sous-arbre droit sont supérieures).</li>
+        <li><strong>Arbre AVL</strong> : un arbre binaire de recherche équilibré, où la différence de hauteur entre les sous-arbres gauche et droit est au plus 1.</li>
+    </ul>
+    <p>Exemple d'arbre binaire :</p>
+    <pre>
+        <code>struct Node {</code><br>
+        <code>&nbsp;&nbsp;int data;</code><br>
+        <code>&nbsp;&nbsp;Node *left;</code><br>
+        <code>&nbsp;&nbsp;Node *right;</code><br>
+        <code>}</code><br>
+        <code>Node *root = nullptr;</code><br>
+        <code>Node *newNode = new Node();</code><br>
+        <code>newNode-&gt;data = 10;</code><br>
+        <code>newNode-&gt;left = nullptr;</code><br>
+        <code>newNode-&gt;right = nullptr;</code><br>
+        <code>root = newNode;</code>
+    </pre>
+    <p>Dans cet exemple, on crée une structure de nœud pour l'arbre binaire, on alloue de la mémoire pour un nouveau nœud, on lui assigne une valeur et on le définit comme racine de l'arbre.</p>
+    <p>Il est important de libérer la mémoire allouée pour éviter les fuites de mémoire. On utilise <code>delete</code> pour libérer la mémoire d'un nœud.</p>
+    <p>Exemple de libération de mémoire :</p>   
+    <pre>
+        <code>void deleteTree(Node *node) {</code><br>
+        <code>&nbsp;&nbsp;if (node == nullptr) return;</code><br>
+        <code>&nbsp;&nbsp;deleteTree(node-&gt;left);</code><br>
+        <code>&nbsp;&nbsp;deleteTree(node-&gt;right);</code><br>
+        <code>&nbsp;&nbsp;delete node;</code><br>
+        <code>}</code>
+        <code>deleteTree(root);</code>
+    </pre>
+    <p>Dans cet exemple, on parcourt l'arbre et on libère la mémoire de chaque nœud.</p>
+    <p>Il est aussi possible d'utiliser la bibliothèque <code>set</code> de C++ pour créer des arbres. La bibliothèque <code>set</code> gère automatiquement la mémoire et permet d'ajouter ou de supprimer des éléments facilement.</p>
+    <p>Exemple d'utilisation de <code>set</code> :</p>
+    <pre>
+        <code>#include &lt;set&gt;</code><br>
+        <code>std::set&lt;int&gt; mySet;</code><br>
+        <code>mySet.insert(10);</code><br>
+        <code>mySet.insert(20);</code><br>
+        <code>mySet.erase(10);</code>
+    </pre>
+    <p>Dans cet exemple, on crée un ensemble avec la bibliothèque <code>set</code>, on ajoute des éléments avec <code>insert</code>, puis on supprime un élément avec <code>erase</code>.</p>
+    <p>Il est important de noter que les arbres permettent de gérer des données de manière hiérarchique, ce qui est très utile dans de nombreux cas.</p>
+</div>
+
+
+    </div>
+</body>
+</html>

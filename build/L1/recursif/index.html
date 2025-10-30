@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site de présentation des UEs de la licence informatique">
+    <meta name="keywords" content="MIAGE, UEs, licence, informatique">
+    <meta name="author" content="Ramdane">
+    <script src="../../static/script/l1/lifapi.js" defer></script>
+    <script src="../../static/script/l1/unix.js" defer></script>
+    <script src="../../static/script/main.js" defer></script>
+    <link rel="icon" href="../../static/favicon.ico">
+
+    <title>Programmation Récursive et Algorithmique Avancée</title>
+    <link rel="stylesheet" href="../../static/style/style.css">
+</head>
+<body>
+
+    <header class="header">
+    <div class="nav-container">
+        <div class="nav-left">
+            <a href="/">
+                <img src="../../static/img/LIL1.png" alt="Logo" class="logo">
+            </a>
+            <div class="site-title">
+                <h1 style="font-size: 40px;">LicenceInfoLyon1</h1>
+                <p>Le site d’aide réalisé par un étudiant ... <br/> ... pour les étudiants en informatique à Lyon 1</p>
+            </div>
+        </div>
+        <nav class="nav-links" style="font-size: 30px;">
+            
+            
+            <div class="dropdown">
+                <a href="/">Accueil</a>
+            </div>
+
+
+            <div class="dropdown">
+                <a href="/L1/" class="dropbtn">Licence 1</a>
+                <div class="dropdown-content">
+                    <a href="/L1/algorithmique/">Algo & Prog Impérative</a>
+                    <a href="/L1/unix/">UNIX (Linux)</a>
+                    <a href="/L1/lifami/">Applications Math/Info</a>
+                    <a href="/L1/recursif/">Algo & Prog Récursive</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="/L2/" class="dropbtn">Licence 2</a>
+                <div class="dropdown-content">
+                    <a href="/L2/lifapsd/">Algo & Prog Structure de Données</a>
+                    <a href="/L2/lifarchi/">Architecture des Ordinateurs</a>
+                    <a href="/L2/stat/">Stats pour l'Informatique</a>
+                    <a href="/L2/lifapcd/">Conception & Développement d'Applications</a>
+                    <a href="/L2/bdw/">Base de Données pour le Web</a>
+                    <a href="/L2/pf/">Programmation Fonctionnelle</a>
+                    <a href="/L2/lifse/">Système d'exploitation</a>
+                </div>
+            </div>    
+            
+            <div class="dropdown">
+                <a href="/L3/" class="dropbtn">Licence 3</a>
+                <div class="dropdown-content">
+                    <a href="/L3/lifpca/">Programmation Concurente</a>
+                    <a href="/L3/">Bases de Données Avancées</a>
+                    <a href="/L3/">Réseaux et Sécurité</a>
+                    <a href="/L3/lifweb/">Programmation Web</a>
+                    <a href="/L3/lifpoo/">Programmation Orientée Objet</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <a href="/apropos/">À propos</a>
+            </div>
+        </nav>
+    </div>
+</header>
+    
+    <div class="main-content">
+    
+
+<h2>UE L1 - Programmation récursive & Scheme</h2>
+
+<section>
+    <h3 class="toggle">Qu'est-ce que la récursivité ?</h3>
+    <div class="content hidden">
+        <p>
+            Une fonction est récursive si elle s'appelle elle-même dans sa définition. En programmation fonctionnelle comme en Scheme, la récursivité remplace souvent les boucles.
+        </p>
+        <p>
+            Une fonction récursive se compose généralement :
+        </p>
+        <ul>
+            <li><strong>D’un cas de base</strong> : condition d’arrêt qui retourne une valeur sans appel récursif</li>
+            <li><strong>D’un appel récursif</strong> : la fonction se rappelle sur une version "réduite" du problème</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h3 class="toggle">Manipulation de listes</h3>
+    <div class="content hidden">
+        <p>
+            Scheme est un langage fonctionnel qui travaille beaucoup avec les listes.
+            Voici quelques fonctions fondamentales :
+        </p>
+        <ul>
+            <li><code>null?</code> → teste si une liste est vide</li>
+            <li><code>car</code> → récupère le premier élément</li>
+            <li><code>cdr</code> → récupère le reste de la liste</li>
+            <li><code>cons</code> → ajoute un élément en tête de liste</li>
+        </ul>
+
+        <p>Exemple : additionner tous les éléments d’une liste :</p>
+        <pre><code>(define (somme lst)
+  (if (null? lst)
+      0
+      (+ (car lst) (somme (cdr lst)))))</code></pre>
+    </div>
+</section>
+
+<section>
+    <h3 class="toggle">Calcul descendant vs remontant</h3>
+    <div class="content hidden">
+        <p>
+            En récursivité, on distingue :
+        </p>
+        <ul>
+            <li><strong>Calcul descendant</strong> : les calculs s'accumulent pendant la descente, puis sont évalués à la fin (ex : <code>(* n (fact (- n 1)))</code>)</li>
+            <li><strong>Calcul remontant (accumulateur)</strong> : la valeur se construit au fur et à mesure, utile pour optimiser la mémoire (tail-recursive)</li>
+        </ul>
+
+        <p>Exemple descendant (factorielle) :</p>
+        <pre><code>(define (fact n)
+  (if (= n 0)
+      1
+      (* n (fact (- n 1)))))</code></pre>
+
+        <p>Exemple remontant (avec accumulateur) :</p>
+        <pre><code>(define (fact-acc n acc)
+  (if (= n 0)
+      acc
+      (fact-acc (- n 1) (* acc n))))
+
+(define (fact-tail n)
+  (fact-acc n 1))</code></pre>
+    </div>
+</section>
+
+<section>
+    <h3 class="toggle">Tri récursif : tri par insertion</h3>
+    <div class="content hidden">
+        <p>Le tri par insertion récursif insère le premier élément au bon endroit dans une liste triée :</p>
+
+        <pre><code>(define (inserer x lst)
+  (cond
+    ((null? lst) (list x))
+    ((<= x (car lst)) (cons x lst))
+    (else (cons (car lst) (inserer x (cdr lst))))))
+
+(define (tri-insertion lst)
+  (if (null? lst)
+      '()
+      (inserer (car lst) (tri-insertion (cdr lst)))))</code></pre>
+    </div>
+</section>
+
+<section>
+    <h3 class="toggle">Manipulation d’arbres</h3>
+    <div class="content hidden">
+        <p>
+            Un arbre binaire est représenté en Scheme par une liste de 3 éléments :
+            <code>(valeur sous-arbre-gauche sous-arbre-droit)</code>
+        </p>
+        <p>Exemple d’arbre :</p>
+        <pre><code>(define arbre '(5 (3 () ()) (8 (6 () ()) ())))</code></pre>
+
+        <p>
+            Parcours **infixe** (gauche → racine → droite) :
+        </p>
+        <pre><code>(define (parcours-infixe arbre)
+  (if (null? arbre)
+      '()
+      (append (parcours-infixe (cadr arbre))
+              (list (car arbre))
+              (parcours-infixe (caddr arbre)))))</code></pre>
+
+        <p>
+            Tu peux aussi faire des parcours préfixes (racine d’abord) ou suffixes (feuilles d’abord).
+        </p>
+    </div>
+</section>
+
+<section>
+    <h3 class="toggle">Exercice : somme d’une liste</h3>
+    <div class="content hidden">
+        <p>
+            Écris une fonction Scheme <code>somme</code> qui prend une liste de nombres et retourne leur somme.
+        </p>
+        <pre><code>; Résultat attendu :
+(somme '(1 2 3)) ; → 6</code></pre>
+
+        <input type="text" id="rep-scheme" placeholder="(define (somme lst) ...)">
+        <button onclick="verifScheme()">Vérifier</button>
+        <p id="rep-scheme-resultat"></p>
+    </div>
+</section>
+
+
+
+    </div>
+</body>
+</html>

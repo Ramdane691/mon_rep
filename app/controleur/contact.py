@@ -8,7 +8,7 @@ main = Blueprint('contact', __name__)
 TON_EMAIL = "r.amaouz02@gmail.com"
 MOT_DE_PASSE_APP = "njpnarthxjiotprr"  # Mot de passe d’application généré via Google
 
-@main.route('/contact', methods=['GET', 'POST'])
+@main.route('/contact/', methods=['GET', 'POST'])
 def contact():
     print("🛎️ Route /contact appelée")
 

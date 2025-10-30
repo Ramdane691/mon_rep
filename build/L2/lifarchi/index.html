@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site de présentation des UEs de la licence informatique">
+    <meta name="keywords" content="MIAGE, UEs, licence, informatique">
+    <meta name="author" content="Ramdane">
+    <script src="../../static/script/l1/lifapi.js" defer></script>
+    <script src="../../static/script/l1/unix.js" defer></script>
+    <script src="../../static/script/main.js" defer></script>
+    <link rel="icon" href="../../static/favicon.ico">
+
+    <title>LicenceInfoLyon1 – LIL1</title>
+    <link rel="stylesheet" href="../../static/style/style.css">
+</head>
+<body>
+
+    <header class="header">
+    <div class="nav-container">
+        <div class="nav-left">
+            <a href="/">
+                <img src="../../static/img/LIL1.png" alt="Logo" class="logo">
+            </a>
+            <div class="site-title">
+                <h1 style="font-size: 40px;">LicenceInfoLyon1</h1>
+                <p>Le site d’aide réalisé par un étudiant ... <br/> ... pour les étudiants en informatique à Lyon 1</p>
+            </div>
+        </div>
+        <nav class="nav-links" style="font-size: 30px;">
+            
+            
+            <div class="dropdown">
+                <a href="/">Accueil</a>
+            </div>
+
+
+            <div class="dropdown">
+                <a href="/L1/" class="dropbtn">Licence 1</a>
+                <div class="dropdown-content">
+                    <a href="/L1/algorithmique/">Algo & Prog Impérative</a>
+                    <a href="/L1/unix/">UNIX (Linux)</a>
+                    <a href="/L1/lifami/">Applications Math/Info</a>
+                    <a href="/L1/recursif/">Algo & Prog Récursive</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="/L2/" class="dropbtn">Licence 2</a>
+                <div class="dropdown-content">
+                    <a href="/L2/lifapsd/">Algo & Prog Structure de Données</a>
+                    <a href="/L2/lifarchi/">Architecture des Ordinateurs</a>
+                    <a href="/L2/stat/">Stats pour l'Informatique</a>
+                    <a href="/L2/lifapcd/">Conception & Développement d'Applications</a>
+                    <a href="/L2/bdw/">Base de Données pour le Web</a>
+                    <a href="/L2/pf/">Programmation Fonctionnelle</a>
+                    <a href="/L2/lifse/">Système d'exploitation</a>
+                </div>
+            </div>    
+            
+            <div class="dropdown">
+                <a href="/L3/" class="dropbtn">Licence 3</a>
+                <div class="dropdown-content">
+                    <a href="/L3/lifpca/">Programmation Concurente</a>
+                    <a href="/L3/">Bases de Données Avancées</a>
+                    <a href="/L3/">Réseaux et Sécurité</a>
+                    <a href="/L3/lifweb/">Programmation Web</a>
+                    <a href="/L3/lifpoo/">Programmation Orientée Objet</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <a href="/apropos/">À propos</a>
+            </div>
+        </nav>
+    </div>
+</header>
+    
+    <div class="main-content">
+    
+
+<h2>Architecture des Ordinateurs</h2>
+
+<h3 class="toggle">Conversion entre bases</h3>
+<div class="content hidden">
+    <p>
+        Les ordinateurs travaillent en base binaire. Mais nous utilisons la base décimale et parfois l'hexadécimale pour simplifier l'affichage.
+    </p>
+    <ul>
+        <li><strong>Décimal → Binaire</strong> : divisions successives par 2</li>
+        <li><strong>Binaire → Décimal</strong> : somme des puissances de 2</li>
+        <li><strong>Décimal → Hexa</strong> : divisions par 16</li>
+        <li><strong>Binaire ↔ Hexa</strong> : chaque groupe de 4 bits = 1 chiffre hexa</li>
+    </ul>
+    <p><strong>Exemples :</strong></p>
+    <pre>
+13 (décimal) = 1101 (binaire)
+1011 (binaire) = 8 + 0 + 2 + 1 = 11 (décimal)
+1111 1111 (binaire) = FF (hexa)
+    </pre>
+</div>
+
+<h3 class="toggle">Portes logiques et tables de vérité</h3>
+<div class="content hidden">
+    <p>
+        Les circuits logiques combinatoires sont faits de portes AND, OR, NOT, XOR. Leur comportement est défini par des tables de vérité.
+    </p>
+    <p><strong>Exemple : A AND B</strong></p>
+    <pre>
+A | B | A AND B
+--|---|--------
+0 | 0 |   0
+0 | 1 |   0
+1 | 0 |   0
+1 | 1 |   1
+    </pre>
+    <p>
+        Ces tables permettent de concevoir des circuits logiques pour des opérations simples (additionneur, comparateur, etc).
+    </p>
+
+    <h3 class="toggle">Porte AND</h3>
+    <div class="content hidden">
+        <p>
+            La porte AND est une porte logique qui ne renvoie 1 que si les deux entrées sont à 1.
+        </p>
+        <p>
+            Elle est souvent utilisée pour réaliser des opérations de sélection ou de contrôle dans les circuits numériques.
+        </p>
+        <p><strong>On concidère le circuit suivant : </strong></p>
+        <img src="../../static/img/and.png" alt="Porte AND" class="img-fluid" />
+        <p><strong>Sa table de vérité :</strong></p>
+        <pre>
+A | B | A AND B
+--|---|--------
+0 | 0 |   0
+0 | 1 |   0
+1 | 0 |   0 
+1 | 1 |   1
+        </pre>
+        <p>
+            La porte AND est utilisée dans de nombreux circuits logiques, notamment pour réaliser des additionneurs et des circuits de contrôle.
+        </p>
+    </div>
+
+    <h3 class="toggle">Porte OR</h3>
+    <div class="content hidden">
+        <p>
+            La porte OR est une porte logique qui renvoie 1 si au moins une des entrées est à 1.
+        </p>
+        <p><strong>On considere le circuit suivant :</strong></p>
+        <img src="../../static/img/or.png" alt="Porte OR" class="img-fluid" />
+        <p><strong>Table de vérité :</strong></p>
+        <pre>
+A | B | A OR B
+--|---|--------
+0 | 0 |   0
+0 | 1 |   1
+1 | 0 |   1
+1 | 1 |   1
+        </pre>
+        <p>
+            La porte OR est souvent utilisée pour réaliser des circuits de sélection et de contrôle.
+        </p>
+    </div>
+
+    <h3 class="toggle">Porte NOT</h3>
+    <div class="content hidden">
+        <p>
+            La porte NOT est une porte logique qui inverse l'état de son entrée.
+        </p>
+        <p><strong>On considère le circuit suivant :</strong></p>
+        <img src="../../static/img/not.png" alt="Porte NOT" class="img-fluid" />
+        <p><strong>Table de vérité :</strong></p>
+        <pre>
+A | NOT A
+--|-------
+0 |   1
+1 |   0
+        </pre>
+        <p>
+            La porte NOT est souvent utilisée pour réaliser des circuits de contrôle et d'inversion.
+        </p>
+    </div>
+
+    <h3 class="toggle">Porte XOR</h3>
+    <div class="content hidden">
+        <p>
+            La porte XOR (ou "exclusive OR") est une porte logique qui renvoie 1 si une seule des entrées est à 1.
+        </p>
+        <p><strong>On considère le circuit suivant :</strong></p>
+        <img src="../../static/img/xor.png" alt="Porte XOR" class="img-fluid" />
+        <p><strong>Sa table de vérité :</strong></p>
+        <pre>
+A | B | A XOR B
+--|---|--------
+0 | 0 |   0
+0 | 1 |   1
+1 | 0 |   1
+1 | 1 |   0
+        </pre>
+        <p>
+            La porte XOR est souvent utilisée pour réaliser des circuits de contrôle et de sélection.
+        </p>
+    </div>
+
+    <h3 class="toggle">Additionneur binaire</h3>
+    <div class="content hidden">
+        <p>
+            Un additionneur binaire est un circuit qui additionne deux nombres binaires. Il utilise des portes logiques pour réaliser l'opération.
+        </p>
+        <p><strong>On considere le circuit suivant :</strong></p>
+        <img src="../../static/img/add.png" alt="Additionneur binaire" class="img-fluid" />
+        <p><strong>Sa table de verite :</strong></p>
+        <pre>
+A | B | S (Somme) | C (Retenue)
+--|---|-----------|---------
+0 | 0 |     0     |    0
+0 | 1 |     1     |    0
+1 | 0 |     1     |    0
+1 | 1 |     0     |    1
+        </pre>
+        <p>
+            L'additionneur binaire peut être étendu pour additionner des nombres de plusieurs bits en utilisant des circuits appelés "additionneurs en cascade".
+        </p>
+    </div>
+
+    <h3 class="toggle">Multiplexeur</h3>
+    <div class="content hidden">
+        <p>
+            Un multiplexeur est un circuit qui sélectionne une entrée parmi plusieurs en fonction d'un signal de contrôle.
+        </p>
+        <p><strong>Exemple :</strong></p>
+        <pre>
+Sélectionneur | Entrée 0 | Entrée 1 | Sortie
+--------------|-----------|-----------|-------
+      0       |     0     |     1     |   0
+      1       |     1     |     0     |   1
+        </pre>
+        <p>
+            Le multiplexeur est souvent utilisé pour réaliser des circuits de sélection et de contrôle.
+        </p>
+    </div>
+
+    <h3 class="toggle">Démultiplexeur</h3>
+    <div class="content hidden">
+        <p>
+            Un démultiplexeur est un circuit qui distribue une entrée à plusieurs sorties en fonction d'un signal de contrôle.
+        </p>
+        <p><strong>Exemple :</strong></p>
+        <pre>
+Sélectionneur | Entrée | Sortie 0 | Sortie 1
+--------------|--------|-----------|---------
+      0       |   1    |     1     |     0
+      1       |   0    |     0     |     1
+        </pre>
+        <p>
+            Le démultiplexeur est souvent utilisé pour réaliser des circuits de distribution et de contrôle.
+        </p>
+    </div>
+
+    <h3 class="toggle">Additionneur complet</h3>
+    <div class="content hidden">
+        <p>
+            Un additionneur complet est un circuit qui additionne deux bits et une retenue d'entrée pour produire une somme et une retenue de sortie.
+        </p>
+        <p><strong>Exemple :</strong></p>
+        <pre>
+A | B | Cin | S (Somme) | Cout (Retenue)
+--|---|-----|-----------|---------
+0 | 0 |  0  |     0     |    0
+0 | 0 |  1  |     1     |    0
+0 | 1 |  0  |     1     |    0
+0 | 1 |  1  |     0     |    1
+1 | 0 |  0  |     1     |    0
+1 | 0 |  1  |     0     |    1
+1 | 1 |  0  |     0     |    1
+1 | 1 |  1  |     1     |    1
+        </pre>
+        <p>
+            L'additionneur complet est souvent utilisé pour réaliser des circuits d'addition de plusieurs bits.
+        </p>
+    </div>
+
+    <h3 class="toggle">Comparateur</h3>
+    <div class="content hidden">
+        <p>
+            Un comparateur est un circuit qui compare deux nombres binaires et produit une sortie indiquant leur relation (égal, supérieur, inférieur).
+        </p>
+        <p><strong>Exemple :</strong></p>
+        <pre>
+A | B | A = B | A > B | A < B
+--|---|-------|-------|-------
+0 | 0 |   1   |   0   |   0
+0 | 1 |   0   |   0   |   1
+1 | 0 |   0   |   1   |   0
+1 | 1 |   1   |   0   |   0
+        </pre>
+        <p>
+            Le comparateur est souvent utilisé pour réaliser des circuits de contrôle et de sélection.
+        </p>
+    </div>
+
+    <h3 class="toggle">Forme disjonctive</h3>
+    <div class="content hidden">
+        <p>
+            La forme disjonctive est une représentation d'une fonction logique sous forme de somme de produits. Elle est utilisée pour simplifier les circuits logiques.
+        </p>
+        <p><strong>Exemple :</strong></p>
+        <pre>
+F(A, B, C) = A'B'C + AB'C' + ABC
+        </pre>
+        <p>Cette expression correspond à la table suivante :<strong></strong></p>
+        <pre>
+A | B | C | F(A, B, C)
+--|---|---|---------
+0 | 0 | 0 |    1
+0 | 0 | 1 |    0
+0 | 1 | 0 |    1
+0 | 1 | 1 |    0
+1 | 0 | 0 |    1
+1 | 0 | 1 |    0
+1 | 1 | 0 |    1
+1 | 1 | 1 |    0
+        </pre>
+        <p>
+            La forme disjonctive est souvent utilisée pour réaliser des circuits logiques combinatoires.
+        </p>
+    </div>
+<p><strong>On commence toujours par dresser la table de vérité avant de faire le circuit!</strong></p>
+</div>
+
+
+<!--- //////////////////////////////////////////////////////////////////////////////////////////-->
+
+<h3 class="toggle">Circuits séquentiels</h3>
+<div class="content hidden">
+    <p>
+        Contrairement aux circuits combinatoires, les circuits séquentiels prennent en compte les <strong>états précédents</strong>. Ils sont à la base des mémoires, registres, compteurs, etc.
+    </p>
+    <ul>
+        <li><strong>Bascules</strong> : RS, D, JK, T</li>
+        <li><strong>Registres</strong> : ensemble de bascules stockant des bits</li>
+        <li><strong>Compteur binaire</strong> : circuit qui incrémente un état binaire à chaque cycle</li>
+    </ul>
+    <p>
+        Les circuits séquentiels sont pilotés par un <strong>signal d'horloge</strong> qui déclenche les changements d'état.
+    </p>
+</div>
+
+<h3 class="toggle">LC-3 : processeur simplifié</h3>
+<div class="content hidden">
+    <p>
+        Le LC-3 est un modèle de processeur simple pour comprendre comment fonctionne une machine. Il utilise un assembleur simplifié et quelques registres.
+    </p>
+    <ul>
+        <li>Registres : R0 à R7</li>
+        <li>Instructions : ADD, AND, NOT, LD, BR, HALT, etc.</li>
+        <li>Adresses mémoire codées sur 16 bits</li>
+    </ul>
+    <p><strong>Exemple :</strong></p>
+    <pre>
+; Ajouter 5 et 3
+LD R1, val1
+LD R2, val2
+ADD R0, R1, R2
+HALT
+
+val1 .FILL #5
+val2 .FILL #3
+    </pre>
+    <p>
+        Ce code charge les valeurs 5 et 3 dans des registres, les additionne et stocke le résultat dans R0.
+    </p>
+</div>
+
+
+
+    </div>
+</body>
+</html>

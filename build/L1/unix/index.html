@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site de présentation des UEs de la licence informatique">
+    <meta name="keywords" content="MIAGE, UEs, licence, informatique">
+    <meta name="author" content="Ramdane">
+    <script src="../../static/script/l1/lifapi.js" defer></script>
+    <script src="../../static/script/l1/unix.js" defer></script>
+    <script src="../../static/script/main.js" defer></script>
+    <link rel="icon" href="../../static/favicon.ico">
+
+    <title>UE UNIX (Linux)</title>
+    <link rel="stylesheet" href="../../static/style/style.css">
+</head>
+<body>
+
+    <header class="header">
+    <div class="nav-container">
+        <div class="nav-left">
+            <a href="/">
+                <img src="../../static/img/LIL1.png" alt="Logo" class="logo">
+            </a>
+            <div class="site-title">
+                <h1 style="font-size: 40px;">LicenceInfoLyon1</h1>
+                <p>Le site d’aide réalisé par un étudiant ... <br/> ... pour les étudiants en informatique à Lyon 1</p>
+            </div>
+        </div>
+        <nav class="nav-links" style="font-size: 30px;">
+            
+            
+            <div class="dropdown">
+                <a href="/">Accueil</a>
+            </div>
+
+
+            <div class="dropdown">
+                <a href="/L1/" class="dropbtn">Licence 1</a>
+                <div class="dropdown-content">
+                    <a href="/L1/algorithmique/">Algo & Prog Impérative</a>
+                    <a href="/L1/unix/">UNIX (Linux)</a>
+                    <a href="/L1/lifami/">Applications Math/Info</a>
+                    <a href="/L1/recursif/">Algo & Prog Récursive</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="/L2/" class="dropbtn">Licence 2</a>
+                <div class="dropdown-content">
+                    <a href="/L2/lifapsd/">Algo & Prog Structure de Données</a>
+                    <a href="/L2/lifarchi/">Architecture des Ordinateurs</a>
+                    <a href="/L2/stat/">Stats pour l'Informatique</a>
+                    <a href="/L2/lifapcd/">Conception & Développement d'Applications</a>
+                    <a href="/L2/bdw/">Base de Données pour le Web</a>
+                    <a href="/L2/pf/">Programmation Fonctionnelle</a>
+                    <a href="/L2/lifse/">Système d'exploitation</a>
+                </div>
+            </div>    
+            
+            <div class="dropdown">
+                <a href="/L3/" class="dropbtn">Licence 3</a>
+                <div class="dropdown-content">
+                    <a href="/L3/lifpca/">Programmation Concurente</a>
+                    <a href="/L3/">Bases de Données Avancées</a>
+                    <a href="/L3/">Réseaux et Sécurité</a>
+                    <a href="/L3/lifweb/">Programmation Web</a>
+                    <a href="/L3/lifpoo/">Programmation Orientée Objet</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <a href="/apropos/">À propos</a>
+            </div>
+        </nav>
+    </div>
+</header>
+    
+    <div class="main-content">
+    
+
+<h2>UNIX (Linux)</h2>
+
+<section>
+    <h3 class="toggle">Introduction à UNIX</h3>
+    <div class="content hidden">
+    <p>
+        UNIX est un système d'exploitation puissant et polyvalent, largement utilisé dans le monde de l'informatique. Il est
+        connu pour sa stabilité, sa sécurité et sa capacité à gérer efficacement les ressources système. UNIX est la base
+        de nombreux systèmes d'exploitation modernes, y compris Linux et macOS.
+    </p>
+    <p>
+        Dans cette section, nous allons explorer les concepts fondamentaux de UNIX, y compris la navigation dans le système
+        de fichiers, la gestion des fichiers et des répertoires, ainsi que l'utilisation des commandes de base.
+    </p>
+    <p>
+        UNIX est également connu pour sa philosophie de conception, qui privilégie la simplicité et l'efficacité. Les
+        utilisateurs peuvent combiner de petites commandes pour accomplir des tâches complexes, ce qui en fait un outil
+        puissant pour les développeurs et les administrateurs système.
+    </p>
+    </div>
+</section>
+
+
+
+
+<!---====================================================================-->
+
+<section>
+    <h3 class="toggle">Commandes de base</h3>
+    <div class="content hidden">
+    <p>
+        Voici quelques-unes des commandes de base que vous devez connaître pour naviguer dans un système UNIX :
+    </p>
+    <ul>
+        <li><strong>ls</strong> : Lister le contenu d'un répertoire</li>
+        <li><strong>cd</strong> : Changer de répertoire</li>
+        <li><strong>pwd</strong> : Afficher le chemin du répertoire courant</li>
+        <li><strong>mkdir</strong> : Créer un nouveau répertoire</li>
+        <li><strong>rm</strong> : Supprimer un fichier ou un répertoire</li>
+        <li><strong>cp</strong> : Copier des fichiers ou des répertoires</li>
+        <li><strong>mv</strong> : Déplacer ou renommer des fichiers ou des répertoires</li>
+    </ul>
+    <p>
+        Ces commandes sont essentielles pour interagir avec le système de fichiers et gérer vos fichiers et répertoires.
+    </p>
+    </div>
+
+</section>
+
+<!------------------------------------------------------------------------->
+<section>
+    <h3 class="toggle">Navigation dans le système de fichiers</h3>
+    <div class="content hidden">
+    <p>
+        La navigation dans le système de fichiers UNIX se fait à l'aide de la commande <strong>cd</strong>. Par exemple, pour
+        accéder au répertoire <em>Documents</em>, vous pouvez utiliser la commande suivante :
+    </p>
+    <pre><code>cd Documents</code></pre>
+    <p>
+        Pour revenir au répertoire parent, utilisez la commande :
+    </p>
+    <pre><code>cd ..</code></pre>
+    <p>
+        Pour afficher le chemin complet du répertoire courant, utilisez la commande :
+    </p>
+    <pre><code>pwd</code></pre>
+    <p>
+        Vous pouvez également utiliser des chemins absolus et relatifs pour naviguer dans le système de fichiers. Un chemin
+        absolu commence à la racine du système de fichiers (/) et inclut tous les répertoires parents, tandis qu'un chemin
+        relatif est basé sur le répertoire courant.
+    </p>
+    <p>
+        Par exemple, si vous êtes dans le répertoire <em>Documents</em> et que vous souhaitez accéder au répertoire
+        <em>Images</em> situé dans <em>Documents</em>, vous pouvez utiliser le chemin relatif :
+    </p>
+    <pre><code>cd Images</code></pre>
+    <p>
+        Si vous souhaitez accéder au répertoire <em>Images</em> situé dans le répertoire <em>Documents</em>, vous pouvez
+        utiliser le chemin absolu :
+    </p>
+    <pre><code>cd /home/utilisateur/Documents/Images</code></pre>
+    <p>
+        En utilisant ces commandes et concepts, vous serez en mesure de naviguer efficacement dans le système de fichiers
+        UNIX.
+    </p>
+    </div>
+</section>
+
+
+<!------------------======================================================== -->
+
+<section>
+    <h3 class="toggle">Gestion des fichiers et des répertoires</h3>
+    <div class="content hidden">
+    <p>
+        La gestion des fichiers et des répertoires dans UNIX se fait à l'aide de plusieurs commandes. Voici quelques-unes
+        des commandes les plus courantes :
+    </p>
+    <ul>
+        <li><strong>mkdir</strong> : Créer un nouveau répertoire</li>
+        <li><strong>rm</strong> : Supprimer un fichier ou un répertoire</li>
+        <li><strong>cp</strong> : Copier des fichiers ou des répertoires</li>
+        <li><strong>mv</strong> : Déplacer ou renommer des fichiers ou des répertoires</li>
+    </ul>
+    <p>
+        Par exemple, pour créer un nouveau répertoire appelé <em>NouveauDossier</em>, vous pouvez utiliser la commande :
+    </p>
+    <pre><code>mkdir NouveauDossier</code></pre>
+    <p>
+        Pour supprimer un fichier appelé <em>fichier.txt</em>, utilisez la commande :
+    </p>
+    <pre><code>rm fichier.txt</code></pre>
+    <p>
+        Pour copier un fichier appelé <em>fichier.txt</em> vers un autre répertoire, utilisez la commande :
+    </p>
+    <pre><code>cp fichier.txt /chemin/vers/le/répertoire/</code></pre>
+    <p>
+        Pour déplacer ou renommer un fichier, utilisez la commande :
+    </p>
+    <pre><code>mv ancien_nom.txt nouveau_nom.txt</code></pre>
+    <p>
+        En utilisant ces commandes, vous serez en mesure de gérer efficacement vos fichiers et répertoires dans UNIX.
+    </p>
+
+    </div>
+</section>
+
+
+<!------------------======================================================== -->
+
+<section>
+    <h3 class="toggle">Gestion des permissions</h3>
+    <div class="content hidden">
+    <p>
+        La gestion des permissions dans UNIX est essentielle pour assurer la sécurité et la confidentialité des fichiers et
+        des répertoires. Chaque fichier et répertoire a des permissions qui déterminent qui peut lire, écrire ou exécuter le
+        fichier.
+    </p>
+    <p>
+        Les permissions sont généralement affichées sous la forme d'une chaîne de caractères, par exemple :
+    </p>
+    <pre><code>drwxr-xr-x</code></pre>
+    <p>
+        Dans cet exemple, la première lettre indique le type de fichier (d pour un répertoire, - pour un fichier normal),
+        suivie de trois groupes de trois caractères qui indiquent les permissions pour le propriétaire, le groupe et les
+        autres utilisateurs.
+    </p>
+    <p>
+        Les permissions peuvent être modifiées à l'aide de la commande <strong>chmod</strong>. Par exemple, pour donner au
+        propriétaire d'un fichier le droit d'écriture, utilisez la commande :
+    </p>
+    <pre><code>chmod u+w fichier.txt</code></pre>
+    </div>    
+
+</section>
+
+<section>
+    <h3 class="toggle">Redirection et pipe</h3>
+
+    <div class="content hidden">
+    <p>
+        La redirection et le pipe sont des fonctionnalités puissantes de UNIX qui vous permettent de manipuler les entrées et
+        sorties des commandes.
+    </p>
+    <p>
+        La redirection vous permet de rediriger la sortie d'une commande vers un fichier ou d'utiliser un fichier comme
+        entrée pour une commande. Par exemple, pour rediriger la sortie de la commande <strong>ls</strong> vers un fichier
+        appelé <em>liste.txt</em>, utilisez la commande :
+    </p>
+    <pre><code>ls > liste.txt</code></pre>
+    <p>
+        Pour utiliser un fichier comme entrée pour une commande, utilisez le symbole <strong>&lt;</strong>. Par exemple, pour
+        afficher le contenu d'un fichier appelé <em>liste.txt</em>, utilisez la commande :
+    </p>
+    <pre><code>cat &lt; liste.txt</code></pre>
+    <p>
+        Le pipe (<strong>|</strong>) vous permet de connecter la sortie d'une commande à l'entrée d'une autre commande. Par
+        exemple, pour afficher la liste des fichiers et trier les résultats par taille, utilisez la commande :
+    </p>
+    <pre><code>ls -l | sort -n</code></pre>
+    <p>
+        En utilisant la redirection et le pipe, vous pouvez créer des chaînes de commandes complexes pour accomplir des
+        tâches avancées dans UNIX.
+    </p>
+    <p>
+        Ces fonctionnalités vous permettent de combiner des commandes et de traiter les données de manière efficace.
+        Par exemple, vous pouvez utiliser le pipe pour envoyer la sortie d'une commande directement en entrée d'une autre
+        commande, ce qui vous permet de créer des chaînes de traitement de données puissantes.
+    </p>
+    <p>
+        En utilisant la redirection et le pipe, vous pouvez automatiser des tâches complexes et améliorer votre
+        productivité dans l'environnement UNIX.
+    </p>
+    <p>
+        Ces fonctionnalités sont particulièrement utiles pour les scripts shell, où vous pouvez combiner plusieurs
+        commandes pour créer des programmes puissants et flexibles.
+        En utilisant la redirection et le pipe, vous pouvez également enregistrer les résultats de vos commandes dans des
+        fichiers pour une utilisation ultérieure, ce qui vous permet de conserver un historique de vos actions et de
+        faciliter le débogage de vos scripts.
+    </p>
+    <p>
+        En résumé, la redirection et le pipe sont des outils essentiels pour tirer le meilleur parti de l'environnement
+        UNIX. Ils vous permettent de manipuler les entrées et sorties des commandes de manière flexible et efficace, ce qui
+        vous aide à accomplir des tâches complexes avec facilité.
+        En maîtrisant ces fonctionnalités, vous serez en mesure de créer des scripts puissants et d'automatiser vos
+        tâches quotidiennes dans l'environnement UNIX.
+    </p>
+
+    </div>
+</section>
+
+<!------------------======================================================== -->
+
+<section>
+    <h3 class="toggle">Script bash</h3>
+    <div class="content hidden">
+    <p>
+        Un script bash est un fichier texte contenant une série de commandes UNIX que vous pouvez
+        exécuter en une seule fois. Les scripts bash sont
+        utiles pour automatiser des tâches répétitives et simplifier la gestion de votre système.
+        Pour créer un script bash, ouvrez un éditeur de texte et écrivez vos commandes. Ensuite, enregistrez le fichier avec
+        l'extension <em>.sh</em>. Par exemple, vous pouvez créer un script appelé <em>mon_script.sh</em> contenant les
+        commandes suivantes :
+    </p>
+    <pre><code>#!/bin/bash
+echo "Bonjour, monde !"
+ls -l
+</code></pre>
+    <p>
+        La première ligne (<em>#!/bin/bash</em>) indique que le script doit être exécuté avec l'interpréteur bash. Les lignes suivantes contiennent les commandes que vous souhaitez exécuter.  
+        Pour exécuter le script, ouvrez un terminal et utilisez la commande suivante :
+    </p>
+    <pre><code>bash mon_script.sh</code></pre>
+    <p>
+        Vous pouvez également rendre le script exécutable en utilisant la commande <strong>chmod</strong> :
+    </p>
+    <pre><code>chmod +x mon_script.sh</code></pre>
+    <p>
+        Ensuite, vous pouvez exécuter le script directement en utilisant la commande :
+    </p>
+    <pre><code>./mon_script.sh</code></pre>
+    <p>
+        Les scripts bash peuvent contenir des boucles, des conditions et des fonctions, ce qui les rend très puissants pour
+        automatiser des tâches complexes. Par exemple, vous pouvez créer un script qui parcourt tous les fichiers d'un
+        répertoire et effectue une action spécifique sur chacun d'eux.
+        Voici un exemple de script qui parcourt tous les fichiers d'un répertoire et affiche leur nom :
+    </p>
+    <pre><code>#!/bin/bash
+for fichier in *; do
+    echo "Fichier : $fichier"
+done
+</code></pre>
+    <p>
+        Dans cet exemple, la boucle <em>for</em> parcourt tous les fichiers du répertoire courant et affiche leur nom. Vous
+        pouvez remplacer <em>echo "Fichier : $fichier"</em> par toute autre commande que vous souhaitez exécuter sur chaque
+        fichier.
+    </p>
+    <p>
+        En utilisant des scripts bash, vous pouvez automatiser des tâches répétitives, simplifier la gestion de votre
+        système et gagner du temps dans vos travaux quotidiens.
+    </p>
+    <p>
+        Les scripts bash sont également très utiles pour la gestion des systèmes, car ils vous permettent d'automatiser des
+        tâches telles que la sauvegarde de fichiers, la surveillance des ressources système et la gestion des utilisateurs.
+        En utilisant des scripts bash, vous pouvez créer des solutions personnalisées pour répondre à vos besoins spécifiques
+        et améliorer l'efficacité de votre travail.
+        De plus, les scripts bash sont portables et peuvent être exécutés sur n'importe quel système UNIX ou Linux, ce qui
+        les rend idéaux pour les environnements multi-plateformes. Vous pouvez également partager vos scripts avec d'autres
+        utilisateurs, ce qui facilite la collaboration et le partage de connaissances.
+        En résumé, les scripts bash sont un outil puissant pour automatiser des tâches répétitives et simplifier la gestion
+        de votre système. Ils vous permettent de créer des solutions personnalisées pour répondre à vos besoins spécifiques et
+        d'améliorer l'efficacité de votre travail. En maîtrisant les scripts bash, vous serez en mesure de tirer le meilleur
+        parti de l'environnement UNIX et de simplifier vos tâches quotidiennes.
+    </p>
+    </div>
+</section>
+
+<!------------------======================================================== -->
+
+<section>
+    
+    <h3 class="toggle">💻 Exercice : Lister le contenu d’un dossier</h3>
+<div class="content hidden">
+    <p>Écris une commande UNIX qui permet de lister les fichiers présents dans un dossier :</p>
+
+    <input type="text" id="reponse1" placeholder="Tape ta commande ici..." style="width: 100%; padding: 8px; margin-bottom: 10px;">
+
+    <button onclick="verifierCommande1()">Vérifier</button>
+
+    <p id="resultat1" style="margin-top: 10px; font-weight: bold;"></p>
+</div>
+</section>
+
+
+    </div>
+</body>
+</html>

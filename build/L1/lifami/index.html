@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site de présentation des UEs de la licence informatique">
+    <meta name="keywords" content="MIAGE, UEs, licence, informatique">
+    <meta name="author" content="Ramdane">
+    <script src="../../static/script/l1/lifapi.js" defer></script>
+    <script src="../../static/script/l1/unix.js" defer></script>
+    <script src="../../static/script/main.js" defer></script>
+    <link rel="icon" href="../../static/favicon.ico">
+
+    <title>Applucation Math/info</title>
+    <link rel="stylesheet" href="../../static/style/style.css">
+</head>
+<body>
+
+    <header class="header">
+    <div class="nav-container">
+        <div class="nav-left">
+            <a href="/">
+                <img src="../../static/img/LIL1.png" alt="Logo" class="logo">
+            </a>
+            <div class="site-title">
+                <h1 style="font-size: 40px;">LicenceInfoLyon1</h1>
+                <p>Le site d’aide réalisé par un étudiant ... <br/> ... pour les étudiants en informatique à Lyon 1</p>
+            </div>
+        </div>
+        <nav class="nav-links" style="font-size: 30px;">
+            
+            
+            <div class="dropdown">
+                <a href="/">Accueil</a>
+            </div>
+
+
+            <div class="dropdown">
+                <a href="/L1/" class="dropbtn">Licence 1</a>
+                <div class="dropdown-content">
+                    <a href="/L1/algorithmique/">Algo & Prog Impérative</a>
+                    <a href="/L1/unix/">UNIX (Linux)</a>
+                    <a href="/L1/lifami/">Applications Math/Info</a>
+                    <a href="/L1/recursif/">Algo & Prog Récursive</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="/L2/" class="dropbtn">Licence 2</a>
+                <div class="dropdown-content">
+                    <a href="/L2/lifapsd/">Algo & Prog Structure de Données</a>
+                    <a href="/L2/lifarchi/">Architecture des Ordinateurs</a>
+                    <a href="/L2/stat/">Stats pour l'Informatique</a>
+                    <a href="/L2/lifapcd/">Conception & Développement d'Applications</a>
+                    <a href="/L2/bdw/">Base de Données pour le Web</a>
+                    <a href="/L2/pf/">Programmation Fonctionnelle</a>
+                    <a href="/L2/lifse/">Système d'exploitation</a>
+                </div>
+            </div>    
+            
+            <div class="dropdown">
+                <a href="/L3/" class="dropbtn">Licence 3</a>
+                <div class="dropdown-content">
+                    <a href="/L3/lifpca/">Programmation Concurente</a>
+                    <a href="/L3/">Bases de Données Avancées</a>
+                    <a href="/L3/">Réseaux et Sécurité</a>
+                    <a href="/L3/lifweb/">Programmation Web</a>
+                    <a href="/L3/lifpoo/">Programmation Orientée Objet</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <a href="/apropos/">À propos</a>
+            </div>
+        </nav>
+    </div>
+</header>
+    
+    <div class="main-content">
+    
+
+<h3 class="toggle">Introduction à Grapic</h3>
+<div class="content hidden">
+    <p>
+        Pour utiliser Grapic, il faut inclure la bibliothèque, ouvrir une fenêtre graphique, puis exécuter une boucle d’affichage :
+    </p>
+    <pre><code>#include &lt;Grapic.h&gt;
+using namespace grapic;
+
+int main()
+{
+    winInit("Fenêtre Grapic", 800, 600);
+
+    while (!winHasFinished())
+    {
+        backgroundColor(255, 255, 255);
+        clear();
+
+        // Dessins ici
+        color(0, 0, 255);
+        drawLine(100, 100, 200, 200);
+
+        winDisplay();
+    }
+
+    return 0;
+}</code></pre>
+</div>
+
+
+
+<h3 class="toggle">Exemples de TP</h3>
+<div class="content hidden">
+    <p>Voici quelques exemples de projets réalisés dans cette UE :</p>
+    <ul>
+        <li>Simulation de chute libre (physique + affichage Grapic)</li>
+        <li>Visualisation de suites (points reliés entre eux)</li>
+        <li>Création d’un labyrinthe, d’un pong ou d’une animation</li>
+    </ul>
+
+    <p>Exemple : affichage d'une parabole y = ax²</p>
+    <pre><code>for (float x = -10; x &lt; 10; x += 0.1)
+{
+    float y = a*x*x;
+    drawLine(400 + x*20, 300 + y*20, 400 + x*20, 300 + y*20);
+}</code></pre>
+</div>
+
+
+
+<h3 class="toggle">Mathématiques appliquées</h3>
+<div class="content hidden">
+    <ul>
+        <li>Géométrie (repère, coordonnées, vecteurs)</li>
+        <li>Suites numériques, fonctions (affichées graphiquement)</li>
+        <li>Calculs vectoriels (norme, direction, rebond)</li>
+        <li>Fractales et récursivité (ex : arbre, flocon de Koch...)</li>
+    </ul>
+</div>
+
+
+
+<h3 class="toggle">Exemple : Arbre récursif</h3>
+<div class="content hidden">
+    <p>Voici un exemple typique : un arbre dessiné récursivement avec Grapic.</p>
+    <pre><code>void arbre(float x, float y, float angle, float taille, int n)
+{
+    if (n == 0) return;
+
+    float x2 = x + taille * cos(angle);
+    float y2 = y + taille * sin(angle);
+
+    drawLine(x, y, x2, y2);
+
+    arbre(x2, y2, angle - 0.3, taille * 0.7, n - 1);
+    arbre(x2, y2, angle + 0.3, taille * 0.7, n - 1);
+}</code></pre>
+    <p>Appel initial dans la boucle principale :</p>
+    <pre><code>arbre(400, 100, M_PI/2, 100, 7);</code></pre>
+</div>
+
+
+<h3 class="toggle">Conclusion</h3>
+<div class="content hidden">
+    <p>
+        Cette UE te montre comment passer d’un problème mathématique abstrait à un programme fonctionnel en C++, et parfois même à une visualisation graphique.
+        Tu apprendras à mieux structurer tes fonctions, utiliser des boucles et de la récursivité, tout en manipulant des objets visuels simples avec Grapic.
+    </p>
+</div>
+
+
+
+    </div>
+</body>
+</html>
